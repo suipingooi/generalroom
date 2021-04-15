@@ -114,6 +114,6 @@ Steps taken to deploy on HEROKU: <br>
 
 
 ## Credits
-1.  
+1.  .gitignore from [https://www.toptal.com/developers/gitignore/api/django](https://www.toptal.com/developers/gitignore/api/django)
 2. 
 3. 
