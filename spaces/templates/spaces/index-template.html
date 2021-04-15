@@ -12,6 +12,11 @@
 <body>
     <h1> TGR Spaces</h1>
     <img src="{% static 'assets\images\logo.jpg' %}" width="800px" />
+    <ul>
+        {%for space in spaces%}
+        <li>{{space.nametype}}</li>
+        {%endfor%}
+    </ul>
 </body>
 
 </html>
