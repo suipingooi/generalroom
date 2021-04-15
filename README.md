@@ -1,45 +1,119 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+## Code Institute Milestone Project 4 - Fullstack Frameworks with Django
 
-Welcome USER_NAME,
+### General Room | Co-Working Space
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use.
+The General Room
 
-## Gitpod Reminders
+<hr>
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+#### The General Room (TGR) - Background
+![TGR](static/assets/readme/header_logo_main.png) <br>
+We are a boutique coworking space with a mission of providing stylish, modern and no-frills environment to help businesses get things done. We are conveniently located in Orchard and Somerset with sophisticated and well equipped business meeting rooms for your needs.
 
-`python3 -m http.server`
+TGR is also available for short term rentals.
 
-A blue button should appear to click: _Make Public_,
+### UX - User Experience
 
-Another blue button should appear to click: _Open Browser_.
+Wireframe of the build design includes:
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+![Wireframe]()
 
-A blue button should appear to click: _Make Public_,
+<hr>
 
-Another blue button should appear to click: _Open Browser_.
+![Color Chart]()<br>
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+<img src="static/assets/readme/tn_colors/black.png" alt="black" width="20px"> <br>
+<img src="static/assets/readme/tn_colors/6D758C.png" alt="#6D758C" width="20px"> <br>
+<img src="static/assets/readme/tn_colors/393C73.png" alt="#393C73" width="20px"> <br>
+<img src="static/assets/readme/tn_colors/77A8F5.png" alt="#77A8F5" width="20px"> <br>
 
-## Updates Since The Instructional Video
+![Font Gylps]()<br>
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+Colors & Font families for UI/UX is inherited and consistent with TGR's brand image and values.
+<hr>
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+A demo of the site can be found here []()
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+<hr>
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Built With 
+### Technologies
+1. HTML 5.0 + CSS
+2. Bootstrap 5.0 - CSS & JS [https://getbootstrap.com/](https://getbootstrap.com/)
+3. Python + Django
+4. JQuery JS
+5. Heroku [https://www.heroku.com/](https://cloudinary.com/) as deployment host.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Styling
+1. Google Fonts [https://fonts.google.com/](https://fonts.google.com/) for font-family pairings.
+2. Fontawesome [https://fontawesome.com/](https://fontawesome.com/) for icons.
+3. Gimp 2.10 [https://www.gimp.org/](https://www.gimp.org/) for image manipulation.
+4. Adobe Color [https://color.adobe.com/](https://color.adobe.com/) to extract TGR base color chart.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### Testing
+[W3C Validator](https://validator.w3.org/) for html validation. All errors dealt with save for Jinja templating errors/ warnings.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+[Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) for css validation. no errors found.
 
----
+<hr>
 
-Happy coding!
+| Action (development testing)             | Results                       | Status      |
+| -----------------------------------------|:-----------------------------:|-------------|
+|                                          |                               |             |
+|                                          |                               |             |
+|                                          |                               |             |                         
+|                                          |                               |             |
+|                                          |                               |             |         
+|                                          |                               |             |
+|                                          |                               |             |
+
+| <h3>**User Features Tests during development**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Test 1: ...**                                                                                                                                                                                                          |
+| **Expected:** ... <br> **Test:** ... <br/>**Result:** ...<br/>                                                                                                                                                           |
+| **Test 2: ...**                                                                                                                                                                                                          |
+| **Expected:** ... <br/>**Test:** ... <br/>**Result:** ...<br/>                                                                                                                                                           |
+| **Test 3: ...**                                                                                                                                                                                                          |
+| **Expected:** ... <br> **Test:** ... <br>**Results:** ...                                                                                                                                                                |
+
+<hr>
+
+**User Features Testing (HEROKU Deployment)** <br>
+[Heroku Deployment User Tests detailed documentation]()
+
+
+<hr>
+
+## Features
+### Existing Features
+1. 
+2. 
+3. 
+
+
+### Features left to Implement
+1. 
+2. 
+3. 
+
+
+
+## Deployment
+Steps taken to deploy on HEROKU: <br>
+1. Created account on Heroku.com and verified details /emails.
+2. Logged into Heroku via bash
+3. Created heroku app.
+4. Checked git remote to confirm repo connection.
+5. Installed gunicorn package dependency.
+6. Created Procfile for heroku with web gunicorn
+7. Created requirements.txt
+8. Git add, commit and push to origin (as heroku prep) followed by git push heroku for app build.
+9. Set config vars on heroku.
+10. Test deployment.
+
+
+## Credits
+1.  
+2. 
+3. 
