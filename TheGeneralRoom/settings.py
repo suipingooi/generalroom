@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # my apps
-    'spaces'
+    'spaces',
+    'main',
 ]
 
 

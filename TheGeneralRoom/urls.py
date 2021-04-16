@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import spaces.views
+import main.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('spaces/', spaces.views.index),
+    path('', main.views.index),
 ]
