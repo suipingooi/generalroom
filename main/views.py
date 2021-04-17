@@ -4,4 +4,12 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, "main/index-template.html")
+    return render(request, "main/home-template.html")
+
+
+def aboutus(request):
+    return render(request, "main/aboutus-template.html")
+
+
+def vtour(request):
+    return render(request, "main/vtour-template.html")
