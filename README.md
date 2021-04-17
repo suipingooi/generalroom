@@ -30,6 +30,11 @@ Wireframe of the build design includes:
 ![Font Gylps]()<br>
 
 Colors & Font families for UI/UX is inherited and consistent with TGR's brand image and values.
+font-family: 'Cinzel', serif;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Raleway', sans-serif;
 <hr>
 
 A demo of the site can be found here []()

@@ -1,7 +1,25 @@
-body {
-    color: #393C73;
-}
-
+/* base template */
 #mainlogo {
     width: 30%;
+}
+
+#navigator {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5vw;
+    margin-top: 50px;
+}
+
+.nav-item {
+    margin: 5px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    font-family: 'Raleway', sans-serif;
+    color: whitesmoke;
+    background-color: #6D758C;
+    text-align: center;
+    font-size: 1vw;
 }
