@@ -1,22 +1,9 @@
-<!DOCTYPE html>
+{% extends 'main/base-template.html' %}
 {% load static %}
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TGR | SPACES</title>
-    <link rel="stylesheet" href="{% static 'css\style.css' %}">
-</head>
-
-<body>
-    <h1> TGR Spaces</h1>
-    <img src="{% static 'assets\images\logo.jpg' %}" width="800px" />
-    <ul>
-        {%for space in spaces%}
-        <li>{{space.nametype}}</li>
-        {%endfor%}
-    </ul>
-</body>
-
-</html>
+{% block content %}
+<ul>
+    {%for space in spaces%}
+    <li>{{space.nametype}}</li>
+    {%endfor%}
+</ul>
+{% endblock %}
