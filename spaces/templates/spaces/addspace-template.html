@@ -1,12 +1,14 @@
-{%extends 'base-template.html' %}
-{% load static %}
+{% extends 'base-template.html' %}
+{% load crispy_forms_tags %}
+
+{% block head_title %} TGR staff | Add Spaces {% endblock %}
 
 {%block content%}
-<div>
+<div class="forms container-fluid">
     <form method="POST">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" />
+        {{form|crispy}}
+        <input class="btn btn-outline-info mt-3" type="submit" />
     </form>
 </div>
 {%endblock%}

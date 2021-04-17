@@ -1,11 +1,11 @@
-{% extends "account/base.html" %}
+{% extends 'base-template.html' %}
 
-{% load i18n %}
-
-{% block head_title %}{% trans "Sign Up Closed" %}{% endblock %}
+{% block head_title %} TGR | We Are Full {% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up Closed" %}</h1>
+<div class="container">
+    <h1>We are Sorry!</h1>
 
-<p>{% trans "We are sorry, but the sign up is currently closed." %}</p>
+    <p>We are currently running at maximum capacity and sign up is currently closed.</p>
+</div>
 {% endblock %}

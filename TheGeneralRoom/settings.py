@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'crispy_forms',
 
     # my apps
     'spaces',
@@ -91,7 +92,7 @@ ACCOUNT_USERNAME_MIN_LENGTH = 4
 
 LOGIN_URL = '/accounts/login/'
 
-LOGIN_REDIRECT_URL = '/success'
+LOGIN_REDIRECT_URL = '/spaces'
 
 # testing email verification
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -150,6 +151,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

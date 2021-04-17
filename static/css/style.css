@@ -23,3 +23,13 @@
     text-align: center;
     font-size: 1vw;
 }
+
+/* cripsy forms */
+.forms,
+.form-group {
+    margin: 15px;
+}
+
+.container-fluid {
+    width: 80%;
+}

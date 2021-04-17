@@ -22,4 +22,5 @@ def add_space(request):
     else:
         space_form = SpaceForm()
         return render(request, 'spaces/addspace-template.html', {
+            'form': space_form
         })
