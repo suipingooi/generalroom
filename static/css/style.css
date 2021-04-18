@@ -43,3 +43,10 @@ p.disclaimer {
     font-size: 80%;
     color: #393C73;
 }
+
+span.verified,
+span.unverified,
+span.primary,
+button.signin {
+    margin-left: 15px;
+}
