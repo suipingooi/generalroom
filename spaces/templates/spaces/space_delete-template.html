@@ -1,0 +1,21 @@
+{% extends 'base-template.html' %}
+{% load static %}
+{% block head_title %} TGR staff | Delete Spaces {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    {% if request.user.is_authenticated %}
+    <h5>Welcome Back to TGR! You are currently logged in as {{request.user}}. </h5>
+    {%endif%}
+    <h4>Delete Space entry for {{space.nametype}}? </h4>
+
+    <p>This action cannot be undone. Are you sure?</p>
+
+    <form method="POST">
+
+        {% csrf_token %}
+        <a class="btn btn-outline-success" href="{% url 'bookspace' %}">Cancel</a>
+        <input class="btn btn-outline-danger" type="submit" value="Yes" />
+
+    </form>
+</div>
+{% endblock %}

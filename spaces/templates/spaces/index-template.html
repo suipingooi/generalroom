@@ -1,14 +1,17 @@
 {% extends 'base-template.html' %}
 {% load static %}
+{% block head_title %} TGR staff | Book Spaces {% endblock %}
 {% block content %}
 {% if request.user.is_authenticated %}
 <h4>Hello {{request.user}}! Welcome Back to TGR</h4>
-{%else%}
-<h4>Please <a href="/accounts/login">Login</a> to Book Spaces</h4>
 {%endif%}
 <ul>
     {%for space in spaces%}
-    <li>{{space.nametype}}</li>
+    <li>
+        {{space.nametype}}
+        <a href="{% url 'updatespace' space_id=space.id %}">Edit</a>
+        <a href="{% url 'deletespace' space_id=space.id %}">Delete</a>
+    </li>
     {%endfor%}
 </ul>
 {% endblock %}
