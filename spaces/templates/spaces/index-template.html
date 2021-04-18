@@ -2,9 +2,9 @@
 {% load static %}
 {% block content %}
 {% if request.user.is_authenticated %}
-<h5>Hello {{request.user}}! Welcome Back to TGR</h5>
+<h4>Hello {{request.user}}! Welcome Back to TGR</h4>
 {%else%}
-<h6>Please <a href="/accounts/login">Login</a> to Reserve Spaces</h6>
+<h4>Please <a href="/accounts/login">Login</a> to Book Spaces</h4>
 {%endif%}
 <ul>
     {%for space in spaces%}

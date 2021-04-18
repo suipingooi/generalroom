@@ -118,7 +118,12 @@ Steps taken to deploy on HEROKU: <br>
 10. Test deployment.
 
 
-## Credits
+## Acknowledgements
+
+### References
+1. [https://docs.djangoproject.com/en/3.0/ref/models/fields/](https://docs.djangoproject.com/en/3.0/ref/models/fields/)
+
+### Credits
 1. .gitignore from [https://www.toptal.com/developers/gitignore/api/django](https://www.toptal.com/developers/gitignore/api/django)
 2. allauth templates adapted from [https://github.com/pennersr/django-allauth/tree/master/allauth/templates](https://github.com/pennersr/django-allauth/tree/master/allauth/templates)
-3. 
+3. Paul, KunXin

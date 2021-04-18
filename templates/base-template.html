@@ -38,15 +38,34 @@
                         <a class="nav-link" href="#">Get in Touch</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'bookspace' %}">Book Space</a>
+                        <a class="nav-link" href="{% url 'account_login' %}">Book Space</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+    {% if messages %}
+    <div class="container-fluid alert alert-success">
+        {% for msg in messages %}
+        <p>{{msg}}</p>
+        {%endfor%}
+    </div>
+    {%endif%}
     <div class="container">
         {%block content%}
         {%endblock%}
+    </div>
+    <div>
+        <strong>Menu:</strong>
+        <ul>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'account_email' %}">Change E-mail</a></li>
+            <li><a href="{% url 'account_logout' %}">Sign Out</a></li>
+            {% else %}
+            <li><a href="{% url 'account_login' %}">Sign In</a></li>
+            <li><a href="{% url 'account_signup' %}">Sign Up</a></li>
+            {% endif %}
+        </ul>
     </div>
     <footer>
         <div class="footer text-center">Copyright &copy; 2021 LGB Somerset Investment Private Limited <br> The

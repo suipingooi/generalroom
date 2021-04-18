@@ -7,7 +7,7 @@
 <div class="forms container-fluid">
     <form method="POST">
         {% csrf_token %}
-        {{form|crispy}}
+        {{ form | crispy }}
         <input class="btn btn-outline-info mt-3" type="submit" />
     </form>
 </div>

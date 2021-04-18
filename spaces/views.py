@@ -1,6 +1,7 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from .models import Space
 from .forms import SpaceForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -17,6 +18,7 @@ def add_space(request):
         space_form = SpaceForm(request.POST)
         if space_form.is_valid():
             space_form.save()
+            messages.success(request, 'New Space Added')
             return redirect(reverse(index))
         pass
     else:
