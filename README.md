@@ -46,8 +46,10 @@ A demo of the site can be found here []()
 1. HTML 5.0 + CSS
 2. Bootstrap 5.0 - CSS & JS [https://getbootstrap.com/](https://getbootstrap.com/)
 3. Python + Django
-4. JQuery JS
+4. JQuery 
+5. 
 5. Heroku [https://www.heroku.com/](https://cloudinary.com/) as deployment host.
+
 
 ### Styling
 1. Google Fonts [https://fonts.google.com/](https://fonts.google.com/) for font-family pairings.
@@ -122,6 +124,8 @@ Steps taken to deploy on HEROKU: <br>
 
 ### References
 1. [https://docs.djangoproject.com/en/3.0/ref/models/fields/](https://docs.djangoproject.com/en/3.0/ref/models/fields/)
+2. [https://www.geeksforgeeks.org/datetimefield-django-forms/](https://www.geeksforgeeks.org/datetimefield-django-forms/)
+3. [https://docs.djangoproject.com/en/3.1/ref/forms/widgets/](https://docs.djangoproject.com/en/3.1/ref/forms/widgets/)
 
 ### Credits
 1. .gitignore from [https://www.toptal.com/developers/gitignore/api/django](https://www.toptal.com/developers/gitignore/api/django)

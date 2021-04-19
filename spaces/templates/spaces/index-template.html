@@ -5,22 +5,37 @@
 {% if request.user.is_authenticated %}
 <h4>Hello {{request.user}}! Welcome Back to TGR</h4>
 <hr>
-{%endif%}
+{% endif %}
+{% if request.user.is_superuser %}
 <ul>
     {%for space in spaces%}
     <div class="card" style="width: 18rem;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">{{space.nametype}}</h5>
-            <p class="card-text">seats up to {{space.seats}} <br> {{space.desc}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h5 class="card-title">{{space.space_type}}</h5>
+            <p class="card-text">seats up to {{space.seat_capacity}} <br> {{space.desc}}</p>
+            <a href="#" class="btn btn-outline-info">Add to Cart</a>
         </div>
     </div>
     <li>
-        {{space.nametype}}
+        {{space.space_type}}
         <a href="{% url 'updatespace' space_id=space.id %}">Edit</a>
         <a href="{% url 'deletespace' space_id=space.id %}">Delete</a>
     </li>
-    {%endfor%}
+    {% endfor %}
 </ul>
+{% else %}
+<ul>
+    {%for space in spaces%}
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{space.space_type}}</h5>
+            <p class="card-text">seats up to {{space.seat_capacity}} <br> {{space.desc}}</p>
+            <a href="#" class="btn btn-info">Add to Cart</a>
+        </div>
+    </div>
+    {% endfor %}
+</ul>
+{% endif %}
 {% endblock %}

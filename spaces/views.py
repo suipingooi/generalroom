@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
-from .models import Space
-from .forms import SpaceForm
+from .models import Space, Validity
+from .forms import SpaceForm, ValidityForm
 from django.contrib import messages
 
 # Create your views here.
@@ -11,6 +11,8 @@ def index(request):
     return render(request, "spaces/index-template.html", {
         'spaces': spaces
     })
+
+# spaces for booking
 
 
 def add_space(request):
@@ -54,4 +56,21 @@ def delete_space(request, space_id):
     else:
         return render(request, 'spaces/space_delete-template.html', {
             'space': space_to_delete
+        })
+
+
+# validity / timeslots of booking
+
+def create_timeslot(request):
+    if request.method == 'POST':
+        slot_form = ValidityForm(request.POST)
+        if slot_form.is_valid():
+            slot_form.save()
+            messages.success(request, 'New Timeslot Added')
+            return redirect(reverse(index))
+        pass
+    else:
+        slot_form = ValidityForm()
+        return render(request, 'spaces/timeslot_add-template.html', {
+            'form': slot_form
         })
