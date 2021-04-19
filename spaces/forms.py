@@ -5,4 +5,4 @@ from .models import Space
 class SpaceForm(forms.ModelForm):
     class Meta:
         model = Space
-        fields = {'nametype', 'desc', 'seats'}
+        fields = {'space_type', 'description', 'seat_capacity'}

@@ -5,10 +5,10 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Space(models.Model):
-    nametype = models.CharField(blank=False, max_length=255)
-    desc = desc = models.TextField(blank=False)
-    seats = models.PositiveIntegerField(
+    space_type = models.CharField(blank=False, max_length=255)
+    description = models.TextField(blank=False)
+    seat_capacity = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(30)])
 
     def __str__(self):
-        return self.nametype
+        return self.space_type
