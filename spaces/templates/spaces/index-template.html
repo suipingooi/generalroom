@@ -4,9 +4,18 @@
 {% block content %}
 {% if request.user.is_authenticated %}
 <h4>Hello {{request.user}}! Welcome Back to TGR</h4>
+<hr>
 {%endif%}
 <ul>
     {%for space in spaces%}
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{space.nametype}}</h5>
+            <p class="card-text">seats up to {{space.seats}} <br> {{space.desc}}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
     <li>
         {{space.nametype}}
         <a href="{% url 'updatespace' space_id=space.id %}">Edit</a>

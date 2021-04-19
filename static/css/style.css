@@ -5,12 +5,29 @@
 
 #navigator {
     font-family: 'Cinzel', serif;
-    font-size: 1.5vw;
+    font-size: 0.8vw;
     margin-top: 50px;
 }
 
 .nav-item {
-    margin: 5px;
+    margin: 3px;
+    font-size: 1.2vw;
+
+}
+
+.dropdown-item {
+    margin: 3px;
+    font-size: 0.8vw;
+    color: #393C73;
+
+}
+
+.dropdown-menu {
+    min-width: 7rem;
+}
+
+.dropdown-menu[data-bs-popper] {
+    left: -80px;
 }
 
 body {
