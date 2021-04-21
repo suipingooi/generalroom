@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
-from .models import Space, Validity, Price
-from .forms import SpaceForm, ValidityForm, PriceForm
+from .models import Space, Price
+from .forms import SpaceForm, PriceForm
 from django.contrib import messages
 
 # Create your views here.
@@ -39,12 +39,14 @@ def update_space(request, space_id):
             return redirect(reverse(index))
         else:
             return render(request, 'spaces/space_update-template.html', {
-                'form': space_form
+                'form': space_form,
+                'space': space_to_update
             })
     else:
         space_form = SpaceForm(instance=space_to_update)
         return render(request, 'spaces/space_update-template.html', {
-            'form': space_form
+            'form': space_form,
+            'space': space_to_update
         })
 
 
@@ -75,18 +77,3 @@ def add_price_list(request):
         })
 
 # validity / timeslots of booking
-
-
-def create_timeslot(request):
-    if request.method == 'POST':
-        slot_form = ValidityForm(request.POST)
-        if slot_form.is_valid():
-            slot_form.save()
-            messages.success(request, 'New Timeslot Added')
-            return redirect(reverse(index))
-        pass
-    else:
-        slot_form = ValidityForm()
-        return render(request, 'spaces/timeslot_add-template.html', {
-            'form': slot_form
-        })

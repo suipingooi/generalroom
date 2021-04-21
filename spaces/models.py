@@ -3,17 +3,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 
-
-class Validity(models.Model):
-    count_credit = models.PositiveIntegerField(
-        default=1, validators=[MinValueValidator(1), MaxValueValidator(90)])
-    start_datetime = models.DateTimeField(blank=False)
-    end_datetime = models.DateTimeField(blank=False)
-
-    def __str__(self):
-        return ("START: " + self.start_datetime + " END: " + self.end_datetime)
-
-
 view = (
     ('yes', 'with window view'),
     ('no', 'without window view'),
@@ -60,7 +49,7 @@ class Space(models.Model):
     seat_capacity = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(30)])
     monthly_print_credit_page = models.PositiveIntegerField(
-        default=30, validators=[MinValueValidator(0), MaxValueValidator(60)])
+        default=0, validators=[MinValueValidator(0), MaxValueValidator(60)])
     monthly_meeting_room_credit_hour = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(4)])
     window = models.CharField(blank=False, choices=view, max_length=30)

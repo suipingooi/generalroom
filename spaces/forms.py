@@ -1,5 +1,5 @@
 from django import forms
-from .models import Space, Validity, Price
+from .models import Space, Price
 
 
 class SpaceForm(forms.ModelForm):
@@ -15,16 +15,16 @@ class SpaceForm(forms.ModelForm):
             'window',
             'price',
         }
-
-
-class ValidityForm(forms.ModelForm):
-    class Meta:
-        model = Validity
-        fields = {
-            'count_credit',
-            'start_datetime',
-            'end_datetime',
-        }
+    field_order = [
+        'space_type',
+        'description',
+        'seat_capacity',
+        'price',
+        'area_size',
+        'monthly_print_credit_page',
+        'monthly_meeting_room_credit_hour',
+        'window',
+    ]
 
 
 class PriceForm(forms.ModelForm):
@@ -34,4 +34,11 @@ class PriceForm(forms.ModelForm):
             'cost',
             'unit_type',
             'min_count',
+            'valid_period',
         }
+    field_order = [
+        'cost',
+        'unit_type',
+        'min_count',
+        'valid_period',
+    ]
