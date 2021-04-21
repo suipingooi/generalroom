@@ -1,0 +1,14 @@
+{% extends 'base-template.html' %}
+{% load crispy_forms_tags %}
+
+{% block head_title %} TGR staff | Add Price {% endblock %}
+
+{%block content%}
+<div class="forms container-fluid">
+    <form method="POST">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <input class="btn btn-outline-info mt-3" type="submit" value="Add Price" />
+    </form>
+</div>
+{%endblock%}

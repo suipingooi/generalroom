@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
-from .models import Space, Validity
-from .forms import SpaceForm, ValidityForm
+from .models import Space, Validity, Price
+from .forms import SpaceForm, ValidityForm, PriceForm
 from django.contrib import messages
 
 # Create your views here.
@@ -59,7 +59,23 @@ def delete_space(request, space_id):
         })
 
 
+# CRUD pricelist
+def add_price_list(request):
+    if request.method == 'POST':
+        pricelist_form = PriceForm(request.POST)
+        if pricelist_form.is_valid():
+            pricelist_form.save()
+            messages.success(request, 'New Entry Added to Price List')
+            return redirect(reverse(index))
+        pass
+    else:
+        pricelist_form = PriceForm()
+        return render(request, 'spaces/price_add-template.html', {
+            'form': pricelist_form
+        })
+
 # validity / timeslots of booking
+
 
 def create_timeslot(request):
     if request.method == 'POST':

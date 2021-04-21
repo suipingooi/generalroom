@@ -1,5 +1,5 @@
 from django import forms
-from .models import Space, Validity
+from .models import Space, Validity, Price
 
 
 class SpaceForm(forms.ModelForm):
@@ -8,14 +8,30 @@ class SpaceForm(forms.ModelForm):
         fields = {
             'space_type',
             'description',
+            'area_size',
             'seat_capacity',
-            'price_per_hour',
-            'monthly_print_credits',
-            'monthly_meeting_room_credits'
+            'monthly_print_credit_page',
+            'monthly_meeting_room_credit_hour',
+            'window',
+            'price',
         }
 
 
 class ValidityForm(forms.ModelForm):
     class Meta:
         model = Validity
-        fields = {'unit_credits', 'start', 'end', }
+        fields = {
+            'count_credit',
+            'start_datetime',
+            'end_datetime',
+        }
+
+
+class PriceForm(forms.ModelForm):
+    class Meta:
+        model = Price
+        fields = {
+            'cost',
+            'unit_type',
+            'min_count',
+        }

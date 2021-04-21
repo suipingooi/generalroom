@@ -51,10 +51,20 @@
                         <a class="nav-link dropdown-toggle" href="#" id="loginDrop" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="far fa-user-circle"></i></a>
+                        {% if user.is_superuser %}
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <p class="note">Welcome Back {{user}}, <br> You have Admin Access</p>
+                            <li><a class="dropdown-item" href="#">Manage Site</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
                         </ul>
+                        {% else %}
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <p class="note">Welcome Back {{user}}!</p>
+                            <li><a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a></li>
+                            <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
+                        </ul>
+                        {% endif %}
                     </li>
                     {% else %}
                     <li class="nav-item dropdown">
@@ -77,6 +87,19 @@
         <p>{{msg}}</p>
         {%endfor%}
     </div>
+    {%endif%}
+    {% if user.is_superuser %}
+    <nav class="adminconsole">
+        <div class="container row text-end">
+            <h5>Admin Console</h5>
+            <div class="col">
+                <a class="adminbtn btn btn-light mb-3" href="{% url 'addspace' %}">
+                    <i class="fas fa-plus"></i> New Space</a>
+                <a class="adminbtn btn btn-light mb-3" href="{% url 'addprice' %}">
+                    <i class="fas fa-plus"></i> New Pricing</a>
+            </div>
+        </div>
+    </nav>
     {%endif%}
     <div class="container">
         {%block content%}
