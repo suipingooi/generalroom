@@ -24,7 +24,7 @@ def add_space(request):
             return redirect(reverse(bookspace))
         else:
             messages.error(
-                request, 'Update Unsuccessful, Please check error fields')
+                request, 'Action Unsuccessful, Please check error fields')
             return render(request, 'spaces/space_add-template.html', {
                 'form': space_form
             })
