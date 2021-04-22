@@ -1,0 +1,35 @@
+{% extends 'base-template.html' %}
+{% block head_title %} TGR Staff | Price List {% endblock %}
+{% block content %}
+
+<div class=container>
+    <h4 class="mt-3">Published Pricelist</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Price</th>
+                <th scope="col">Minimum</th>
+                <th scope="col">Valid Period</th>
+            </tr>
+        </thead>
+        <tbody>
+            {%for p in pricelist%}
+            <tr>
+                <th scope="row">
+                    <a class="btn btn-dark" href="{% url 'delprice' price_id=p.id %}">
+                        <i class="fas fa-trash-alt"></i></a>
+                    <a class="btn btn-dark" href="{% url 'updateprice' price_id=p.id %}">
+                        <i class="fas fa-edit"></i></a>
+                </th>
+                <td>SGD{{p.cost}}/{{p.unit_type}}</td>
+                <td>{{p.min_count}} {{p.unit_type}}s</td>
+                <td>{{p.valid_period}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+<!-- popup alert -->
+
+{% endblock %}

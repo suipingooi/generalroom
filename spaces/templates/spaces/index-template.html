@@ -1,5 +1,4 @@
 {% extends 'base-template.html' %}
-{% load static %}
 {% block head_title %} TGR | Book Spaces {% endblock %}
 {% block content %}
 {% if request.user.is_authenticated %}
@@ -8,14 +7,13 @@
 {% if request.user.is_superuser %}
 <div class=container>
     <div class="row">
-        {%for space in spaces%}
+        {%for space in spaces %}
         <div class="card productcard">
             <div class="col">
                 <img src="..." class="card-img-top" alt="..." />
-                <a class="btn btn-dark cartbtn" href="{% url 'deletespace' space_id=space.id %}">
-                    <i class="fas fa-trash-alt"></i>
-                </a>
-                <a class="btn btn-dark cartbtn" href="{% url 'updatespace' space_id=space.id %}">
+                <a class="btn cartdelbtn" href="{% url 'deletespace' space_id=space.id %}">
+                    <i class="fas fa-trash-alt"></i></a>
+                <a class="btn carteditbtn" href="{% url 'updatespace' space_id=space.id %}">
                     <i class="fas fa-edit"></i></a>
             </div>
             <div class="card-body">

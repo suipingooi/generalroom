@@ -1,5 +1,6 @@
 /* base template */
 #mainlogo {
+    min-width: 180px;
     width: 30%;
 }
 
@@ -80,6 +81,7 @@ button.signin {
     margin: 8px;
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
+    width: 120px;
 }
 
 .adminconsole {
@@ -90,6 +92,10 @@ button.signin {
     padding: 15px;
 }
 
+.consoletitle {
+    font-size: 1.08rem;
+}
+
 /* product display */
 .productcard {
     margin: 15px;
@@ -97,8 +103,17 @@ button.signin {
     width: 24rem;
 }
 
+.carteditbtn,
+.cartdelbtn {
+    float: right;
+    margin: 2px;
+    color: #6D758C;
+}
+
 .cartbtn {
     float: right;
     margin: 2px;
     width: 100px;
+    background-color: #77A8F5;
+    border-color: #77A8F5;
 }

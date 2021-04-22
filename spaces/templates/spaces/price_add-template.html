@@ -5,10 +5,12 @@
 
 {%block content%}
 <div class="forms container-fluid">
+    <h4>Add New Pricing</h4>
     <form method="POST">
         {% csrf_token %}
         {{ form | crispy }}
-        <input class="btn btn-outline-info mt-3" type="submit" value="Add Price" />
+        <a class="btn btn-outline-secondary mt-3" href="{% url 'viewpricelist' %}">back</a>
+        <input class="btn btn-secondary mt-3" type="submit" value="Add Price" />
     </form>
 </div>
 {%endblock%}

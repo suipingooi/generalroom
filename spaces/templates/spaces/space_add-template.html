@@ -9,7 +9,8 @@
     <form method="POST">
         {% csrf_token %}
         {{ form | crispy }}
-        <input class="btn btn-outline-info mt-3" type="submit" value="Add Space" />
+        <a class="btn btn-outline-secondary mt-3" href="{% url 'bookspace' %}">back</a>
+        <input class="btn btn-secondary mt-3" type="submit" value="Add Space" />
     </form>
 </div>
 {%endblock%}

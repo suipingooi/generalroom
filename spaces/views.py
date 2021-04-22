@@ -7,8 +7,8 @@ from django.contrib import messages
 
 
 def index(request):
-    spaces = Space.objects.all()
-    return render(request, "spaces/index-template.html", {
+    spaces = Space.objects.all().order_by('-id')
+    return render(request, 'spaces/index-template.html', {
         'spaces': spaces
     })
 
@@ -36,6 +36,7 @@ def update_space(request, space_id):
         space_form = SpaceForm(request.POST, instance=space_to_update)
         if space_form.is_valid():
             space_form.save()
+            messages.success(request, 'Space entry Updated')
             return redirect(reverse(index))
         else:
             return render(request, 'spaces/space_update-template.html', {
@@ -54,6 +55,7 @@ def delete_space(request, space_id):
     space_to_delete = get_object_or_404(Space, pk=space_id)
     if request.method == "POST":
         space_to_delete.delete()
+        messages.success(request, 'Space entry Deleted')
         return redirect(index)
     else:
         return render(request, 'spaces/space_delete-template.html', {
@@ -62,13 +64,20 @@ def delete_space(request, space_id):
 
 
 # CRUD pricelist
-def add_price_list(request):
+def view_pricelist(request):
+    pricelist = Price.objects.all().order_by('unit_type')
+    return render(request, 'spaces/price_view-template.html', {
+        'pricelist': pricelist
+    })
+
+
+def add_price(request):
     if request.method == 'POST':
         pricelist_form = PriceForm(request.POST)
         if pricelist_form.is_valid():
             pricelist_form.save()
             messages.success(request, 'New Entry Added to Price List')
-            return redirect(reverse(index))
+            return redirect(reverse(view_pricelist))
         pass
     else:
         pricelist_form = PriceForm()
@@ -76,4 +85,37 @@ def add_price_list(request):
             'form': pricelist_form
         })
 
-# validity / timeslots of booking
+
+def update_price(request, price_id):
+    price_to_update = get_object_or_404(Price, pk=price_id)
+    if request.method == "POST":
+        price_form = PriceForm(request.POST, instance=price_to_update)
+        if price_form.is_valid():
+            price_form.save()
+            return redirect(reverse(view_pricelist))
+        else:
+            return render(request, 'spaces/price_update-template.html', {
+                'form': price_form,
+                'price': price_to_update
+            })
+    else:
+        price_form = PriceForm(instance=price_to_update)
+        return render(request, 'spaces/price_update-template.html', {
+            'form': price_form,
+            'price': price_to_update
+        })
+
+
+def delete_price(request, price_id):
+    price_to_delete = get_object_or_404(Price, pk=price_id)
+    if request.method == "POST":
+        price_to_delete.delete()
+        messages.success(request, 'Price entry deleted')
+        return redirect(view_pricelist)
+    else:
+        messages.warning(request, 'Delete action cannot be undone')
+        return render(request, 'spaces/price_delete-template.html', {
+            'price': price_to_delete
+        })
+
+# validity / timeslots for booking
