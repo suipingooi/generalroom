@@ -18,7 +18,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
+    <!-- toastr -->
+    <link rel="stylesheet" href="{% static 'css\toastr.css' %}" />
+
+    <!-- style.css -->
     <link rel="stylesheet" href="{% static 'css\style.css' %}">
+
 </head>
 
 <body>
@@ -54,7 +59,7 @@
                         {% if user.is_superuser %}
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <p class="note">Welcome Back {{user}}, <br> You have Admin Access</p>
-                            <li><a class="dropdown-item" href="#">Manage Site</a></li>
+                            <li><a class="dropdown-item" href="/admin/">Manage Site</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
                         </ul>
@@ -81,22 +86,18 @@
             </div>
         </div>
     </nav>
-    {% if messages %}
-    <div class="container-fluid alert alert-success">
-        {% for msg in messages %}
-        <p>{{msg}}</p>
-        {%endfor%}
-    </div>
-    {%endif%}
+
     {% if user.is_superuser %}
     <nav class="adminconsole">
         <div class="container row text-end">
-            <h5>Admin Console</h5>
+            <h5 class="consoletitle">Admin Console</h5>
             <div class="col">
                 <a class="adminbtn btn btn-light mb-3" href="{% url 'addspace' %}">
                     <i class="fas fa-plus"></i> New Space</a>
                 <a class="adminbtn btn btn-light mb-3" href="{% url 'addprice' %}">
                     <i class="fas fa-plus"></i> New Pricing</a>
+                <a id="mybtn" class="adminbtn btn btn-light mb-3" href="{% url 'viewpricelist' %}">
+                    <i class="fas fa-eye"></i> Pricelist</a>
             </div>
         </div>
     </nav>
@@ -109,11 +110,14 @@
         <div class="footer text-center">Copyright &copy; 2021 LGB Somerset Investment Private Limited <br> The
             General Room. All rights reserved.</div>
     </footer>
-    {%block js%}
-    {%endblock%}
+
     <!-- JQuery.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
-        integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <!-- popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"
+        integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g=="
         crossorigin="anonymous"></script>
 
     <!-- bootstrap.js -->
@@ -121,7 +125,30 @@
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
     </script>
 
-    <script src="{% static 'js\script.js' %}"></script>
+    <!-- toastr -->
+    <script src="{% static 'js\toastr.js' %}"></script>
+
+    {% if messages %}
+    {% for msg in messages %}
+    {% if msg.tags == "success" %}
+    <script type="text/javascript">
+        toastr.success('{{msg}}')
+    </script>
+    {% elif msg.tags == "error" %}
+    <script type="text/javascript">
+        toastr.error('{{msg}}')
+    </script>
+    {% elif msg.tags == "warning" %}
+    <script type="text/javascript">
+        toastr.warning('{{msg}}')
+    </script>
+    {% elif msg.tags == "info" %}
+    <script type="text/javascript">
+        toastr.info('{{msg}}')
+    </script>
+    {% endif %}
+    {% endfor %}
+    {% endif %}
 
 </body>
 
