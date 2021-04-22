@@ -6,7 +6,7 @@ from django.contrib import messages
 # Create your views here.
 
 
-def index(request):
+def bookspace(request):
     spaces = Space.objects.all().order_by('-id')
     return render(request, 'spaces/index-template.html', {
         'spaces': spaces
@@ -21,8 +21,13 @@ def add_space(request):
         if space_form.is_valid():
             space_form.save()
             messages.success(request, 'New Space Added')
-            return redirect(reverse(index))
-        pass
+            return redirect(reverse(bookspace))
+        else:
+            messages.error(
+                request, 'Update Unsuccessful, Please check error fields')
+            return render(request, 'spaces/space_add-template.html', {
+                'form': space_form
+            })
     else:
         space_form = SpaceForm()
         return render(request, 'spaces/space_add-template.html', {
@@ -36,14 +41,17 @@ def update_space(request, space_id):
         space_form = SpaceForm(request.POST, instance=space_to_update)
         if space_form.is_valid():
             space_form.save()
-            messages.success(request, 'Space entry Updated')
-            return redirect(reverse(index))
+            messages.success(request, 'Space Entry Updated')
+            return redirect(reverse(bookspace))
         else:
+            messages.error(
+                request, 'Action Unsuccessful, Please check error fields')
             return render(request, 'spaces/space_update-template.html', {
                 'form': space_form,
                 'space': space_to_update
             })
     else:
+        messages.info(request, 'EDIT action will overwrite data')
         space_form = SpaceForm(instance=space_to_update)
         return render(request, 'spaces/space_update-template.html', {
             'form': space_form,
@@ -55,9 +63,10 @@ def delete_space(request, space_id):
     space_to_delete = get_object_or_404(Space, pk=space_id)
     if request.method == "POST":
         space_to_delete.delete()
-        messages.success(request, 'Space entry Deleted')
-        return redirect(index)
+        messages.success(request, 'Space Entry Deleted')
+        return redirect(bookspace)
     else:
+        messages.warning(request, 'DELETE action cannot be undone')
         return render(request, 'spaces/space_delete-template.html', {
             'space': space_to_delete
         })
@@ -92,13 +101,17 @@ def update_price(request, price_id):
         price_form = PriceForm(request.POST, instance=price_to_update)
         if price_form.is_valid():
             price_form.save()
+            messages.success(request, 'Price Entry Updated')
             return redirect(reverse(view_pricelist))
         else:
+            messages.error(
+                request, 'Update Unsuccessful, Please check error fields')
             return render(request, 'spaces/price_update-template.html', {
                 'form': price_form,
                 'price': price_to_update
             })
     else:
+        messages.info(request, 'EDIT action will overwrite data')
         price_form = PriceForm(instance=price_to_update)
         return render(request, 'spaces/price_update-template.html', {
             'form': price_form,
@@ -113,7 +126,7 @@ def delete_price(request, price_id):
         messages.success(request, 'Price entry deleted')
         return redirect(view_pricelist)
     else:
-        messages.warning(request, 'Delete action cannot be undone')
+        messages.warning(request, 'DELETE action cannot be undone')
         return render(request, 'spaces/price_delete-template.html', {
             'price': price_to_delete
         })

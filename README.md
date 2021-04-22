@@ -47,8 +47,9 @@ A demo of the site can be found here []()
 2. Bootstrap 5.0 - CSS & JS [https://getbootstrap.com/](https://getbootstrap.com/)
 3. Python + Django
 4. JQuery 
-5. 
-5. Heroku [https://www.heroku.com/](https://cloudinary.com/) as deployment host.
+5. Toastr [https://codeseven.github.io/toastr/](https://codeseven.github.io/toastr/)
+6. Uploadcare [https://uploadcare.com/](https://uploadcare.com/)
+7. Heroku [https://www.heroku.com/](https://www.heroku.com/) as deployment host.
 
 
 ### Styling
@@ -126,8 +127,10 @@ Steps taken to deploy on HEROKU: <br>
 1. [https://docs.djangoproject.com/en/3.0/ref/models/fields/](https://docs.djangoproject.com/en/3.0/ref/models/fields/)
 2. [https://www.geeksforgeeks.org/datetimefield-django-forms/](https://www.geeksforgeeks.org/datetimefield-django-forms/)
 3. [https://docs.djangoproject.com/en/3.1/ref/forms/widgets/](https://docs.djangoproject.com/en/3.1/ref/forms/widgets/)
+4. [https://codepen.io/riyos94/pen/NXgXdp](https://codepen.io/riyos94/pen/NXgXdp)
 
 ### Credits
 1. .gitignore from [https://www.toptal.com/developers/gitignore/api/django](https://www.toptal.com/developers/gitignore/api/django)
 2. allauth templates adapted from [https://github.com/pennersr/django-allauth/tree/master/allauth/templates](https://github.com/pennersr/django-allauth/tree/master/allauth/templates)
-3. Paul, KunXin
+3. Global Trent College mentors: Paul(KunXin) and Ace
+4. toastr options form [https://codeseven.github.io/toastr/demo.html](https://codeseven.github.io/toastr/demo.html)
