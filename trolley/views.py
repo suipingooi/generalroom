@@ -67,7 +67,7 @@ def update_trolley(request, space_id):
         price = trolley[space_id]['price']
         new_unit = request.POST['unit']
 
-        trolley[space_id]['unit'] = request.POST['unit']
+        trolley[space_id]['unit'] = int(request.POST['unit'])
         trolley[space_id]['qty'] = int(new_unit)*int(bundle)
         trolley[space_id]['total'] = int(new_unit)*int(bundle)*float(price)
 

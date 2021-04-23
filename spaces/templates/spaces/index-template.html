@@ -35,14 +35,14 @@
     <div class="row">
         {%for space in spaces%}
         <div class="card productcard">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="{{space.photo.cdn_url}}" class="card-img-top" alt="{{space.space_type}} {{space.description}}">
             <div class="card-body">
                 <h5 class="card-title">{{space.space_type}}</h5>
                 <p class="card-text">{{space.description}}
                     <br> seats up to {{space.seat_capacity}} pax
                     <br> {{space.price}}
                 </p>
-                <a href="#" class="btn btn-secondary cartbtn">
+                <a href="{% url 'basket_add' space_id=space.id %}" class="btn btn-secondary cartbtn">
                     <i class="fas fa-cart-plus"></i></a>
             </div>
         </div>
