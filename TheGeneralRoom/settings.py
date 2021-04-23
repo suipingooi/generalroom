@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     # my apps
     'spaces',
     'main',
+    'tenants',
+    'trolley',
 ]
 
 

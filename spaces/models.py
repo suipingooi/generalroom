@@ -18,8 +18,9 @@ rates = (
 
 
 class Price(models.Model):
-    cost = models.PositiveIntegerField(
-        default=10, validators=[MinValueValidator(0), MaxValueValidator(6000)])
+    cost = models.DecimalField(max_digits=10, decimal_places=2,
+                               blank=False, default=10,
+                               validators=[MinValueValidator('0.01')])
     unit_type = models.CharField(blank=False, choices=rates, max_length=30)
     min_count = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
@@ -31,7 +32,8 @@ class Price(models.Model):
             if self.valid_period != "":
                 return ("SGD" + str(total) + " for " + str(self.min_count)
                         + self.unit_type + "s (@ SGD" + str(self.cost)
-                        + "/" + self.unit_type + ") *validity:" + self.valid_period)
+                        + "/" + self.unit_type + ") *validity:"
+                        + self.valid_period)
             else:
                 return ("SGD" + str(total) + " for " + str(self.min_count)
                         + self.unit_type + "s (@ SGD" + str(self.cost)
@@ -48,7 +50,7 @@ class Space(models.Model):
         default=1, validators=[MinValueValidator(1), MaxValueValidator(1000)])
     seat_capacity = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(0), MaxValueValidator(40)])
-    photo = ImageField(blank=False, manual_crop="")
+    photo = ImageField(blank=True, manual_crop="")
     monthly_print_credit_page = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(1000)])
     monthly_meeting_room_credit_hour = models.PositiveIntegerField(

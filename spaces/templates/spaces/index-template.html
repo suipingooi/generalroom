@@ -23,7 +23,7 @@
                     <br> seats up to {{space.seat_capacity}} pax
                     <br> {{space.price}}
                 </p>
-                <a href="#" class="btn btn-secondary cartbtn">
+                <a href="{% url 'basket_add' space_id=space.id %}" class="btn btn-secondary cartbtn">
                     <i class="fas fa-cart-plus"></i></a>
             </div>
         </div>

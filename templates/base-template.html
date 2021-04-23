@@ -32,7 +32,7 @@
         <div class="container justify-content-between">
             <img id="mainlogo" class="navbar-brand" src="{% static 'assets\images\logo.jpg' %}" alt="TGR logo" />
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigator"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navigator" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navigator" class="collapse navbar-collapse justify-content-end">
@@ -58,14 +58,14 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="far fa-user-circle"></i></a>
                         {% if user.is_superuser %}
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <p class="note">Welcome Back {{user}}, <br> You have Admin Access</p>
+                        <ul class="dropdown-menu" aria-labelledby="navigator">
+                            <li class="note">Welcome Back {{user}}, <br> You have Admin Access</li>
                             <li><a class="dropdown-item" href="/admin/">Manage Site</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
                         </ul>
                         {% else %}
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="navigator">
                             <p class="note">Welcome Back {{user}}!</p>
                             <li><a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
@@ -77,7 +77,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="loginDrop" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="far fa-user-circle"></i> </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu" aria-labelledby="navigator">
                             <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a></li>
                         </ul>
