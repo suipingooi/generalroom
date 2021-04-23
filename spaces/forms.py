@@ -14,11 +14,13 @@ class SpaceForm(forms.ModelForm):
             'monthly_meeting_room_credit_hour',
             'window',
             'price',
+            'photo',
         }
     field_order = [
         'space_type',
         'description',
         'seat_capacity',
+        'photo',
         'price',
         'area_size',
         'monthly_print_credit_page',

@@ -2,6 +2,10 @@
 {% block head_title %} TGR staff | Edit Spaces {% endblock %}
 {% load crispy_forms_tags %}
 
+{% block mediacss %}
+{{form.media}}
+{% endblock %}
+
 {%block content%}
 <div class="forms container-fluid">
     <h4>Update Space entry for {{space.space_type}} | {{space.description}}</h4>

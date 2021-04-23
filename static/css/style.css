@@ -103,6 +103,10 @@ button.signin {
     width: 24rem;
 }
 
+.cardimg {
+    height: 230px;
+}
+
 .carteditbtn,
 .cartdelbtn {
     float: right;

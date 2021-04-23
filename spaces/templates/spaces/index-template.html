@@ -10,7 +10,8 @@
         {%for space in spaces %}
         <div class="card productcard">
             <div class="col">
-                <img src="..." class="card-img-top" alt="..." />
+                <img src="{{space.photo.cdn_url}}" class="card-img-top cardimg"
+                    alt="{{space.space_type}} {{space.description}}" />
                 <a class="btn cartdelbtn" href="{% url 'deletespace' space_id=space.id %}">
                     <i class="fas fa-trash-alt"></i></a>
                 <a class="btn carteditbtn" href="{% url 'updatespace' space_id=space.id %}">

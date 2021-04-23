@@ -37,11 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    # installed dependent apps
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'crispy_forms',
-
+    'pyuploadcare.dj',
     # my apps
     'spaces',
     'main',

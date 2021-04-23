@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-
+from pyuploadcare.dj.models import ImageField
 # Create your models here.
 
 view = (
@@ -48,12 +48,13 @@ class Space(models.Model):
         default=1, validators=[MinValueValidator(1), MaxValueValidator(1000)])
     seat_capacity = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(0), MaxValueValidator(40)])
+    photo = ImageField(blank=False, manual_crop="")
     monthly_print_credit_page = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(1000)])
     monthly_meeting_room_credit_hour = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
     window = models.CharField(blank=False, choices=view, max_length=30)
-    price = models.ForeignKey(Price, on_delete=models.CASCADE)
+    price = models.ForeignKey(Price, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return self.space_type
