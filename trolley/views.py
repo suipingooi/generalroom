@@ -21,7 +21,7 @@ def add_to_trolley(request, space_id):
 
     if space_id in trolley:
         trolley[space_id]['unit'] += 1
-        trolley[space_id]['qty'] += qty
+        trolley[space_id]['quantity'] += qty
         trolley[space_id]['total'] += float(total_cost)
     else:
         trolley[space_id] = {
@@ -32,7 +32,7 @@ def add_to_trolley(request, space_id):
             'total': float(total_cost),
             'disclaimer': price.valid_period,
             'bundle': price.min_count,
-            'qty': qty,
+            'quantity': qty,
             'unit': 1,
             'photo': str(space.photo),
         }
@@ -68,7 +68,7 @@ def update_trolley(request, space_id):
         new_unit = request.POST['unit']
 
         trolley[space_id]['unit'] = int(request.POST['unit'])
-        trolley[space_id]['qty'] = int(new_unit)*int(bundle)
+        trolley[space_id]['quantity'] = int(new_unit)*int(bundle)
         trolley[space_id]['total'] = int(new_unit)*int(bundle)*float(price)
 
         request.session['basket'] = trolley

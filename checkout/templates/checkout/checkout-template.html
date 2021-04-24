@@ -1,0 +1,14 @@
+{% extends 'base-template.html' %}
+{% block head_title %} TGR | PAYMENT {% endblock %}
+
+{% block content %}
+<script src="https://js.stripe.com/v3/"></script>
+{% autoescape off %}
+<script>
+    const stripe = Stripe('{{public_key}}');
+    stripe.redirectToCheckout({
+        sessionId: "{{session_id}}"
+    })
+</script>
+{% endautoescape %}
+{% endblock %}

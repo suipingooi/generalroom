@@ -6,7 +6,7 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv()
+load_dotenv(os.path.join(BASE_DIR), '.env')
 
 UPLOADCARE = {
     'pub_key': os.environ.get('UPLOADCARE_PUBLIC_KEY'),
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'main',
     'tenants',
     'trolley',
+    'checkout',
 ]
 
 
@@ -172,3 +173,8 @@ MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_SUCCESS_URL = os.environ.get('STRIPE_SUCCESS_URL')
+STRIPE_CANCEL_URL = os.environ.get('STRIPE_CANCEL_URL')
