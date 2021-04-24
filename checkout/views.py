@@ -83,7 +83,7 @@ def pay_success(request):
         all_ids = json.loads(all_ids_str)
 
     # to send data into crm model
-    # change URL endpoint for deploy
+    # change URL endpoint, secret key webhook for deploy
         print(all_ids)
 
         print(session)
