@@ -82,7 +82,10 @@ def pay_success(request):
         all_ids_str = session['metadata']['all_ids']
         all_ids = json.loads(all_ids_str)
 
+    # to send data into crm model
+    # change URL endpoint for deploy
         print(all_ids)
 
         print(session)
+
     return HttpResponse(status=200)
