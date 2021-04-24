@@ -1,24 +1,22 @@
 /* base template */
 #mainlogo {
-    min-width: 180px;
+    min-width: 200px;
     width: 30%;
 }
 
 #navigator {
     font-family: 'Cinzel', serif;
-    font-size: 0.8vw;
+    font-size: calc(12px + 0.3vw);
     margin-top: 50px;
 }
 
-.nav-item {
-    margin: 3px;
-    font-size: 1.2vw;
-
+.navico {
+    font-size: calc(16px + 0.2vw);
 }
 
 .dropdown-item {
     margin: 3px;
-    font-size: 0.8vw;
+    font-size: calc(11px + 0.1vw);
     color: #393C73;
 
 }
@@ -118,8 +116,8 @@ button.signin {
     float: right;
     margin: 2px;
     width: 100px;
-    background-color: #77A8F5;
-    border-color: #77A8F5;
+    background-color: #393C73;
+    border-color: #393C73;
 }
 
 /* trolley */
@@ -131,4 +129,11 @@ img.trolleyphoto {
 
 .trolleytext {
     font-size: 0.8rem;
+}
+
+.checkObtn {
+    float: right;
+    background-color: #393C73;
+    border-color: #393C73;
+    margin-bottom: 10px;
 }

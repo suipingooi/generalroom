@@ -56,7 +56,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="loginDrop" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user-circle" style="font-size: 18px;"></i></a>
+                            <i class="fas fa-user-circle navico"></i></a>
                         {% if user.is_superuser %}
                         <ul class="dropdown-menu" aria-labelledby="navigator">
                             <li class="note">Welcome Back {{user}}, <br> You have Admin Access</li>
@@ -76,7 +76,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="loginDrop" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user-circle" style="font-size: 18px;"></i></a>
+                            <i class="fas fa-user-circle userico"></i></a>
                         <ul class="dropdown-menu" aria-labelledby="navigator">
                             <li><a class="dropdown-item" href="{% url 'account_login' %}">Sign In</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_signup' %}">Sign Up</a></li>
@@ -85,7 +85,7 @@
                     {% endif %}
                     <li class="nav-item dropdown">
                         <a class="nav-link" href="{% url 'basket_view' %}"><i
-                                class="fas fa-shopping-cart">{{num_items}}</i></a>
+                                class="fas fa-shopping-cart navico">{{num_items}}</i></a>
                     </li>
                 </ul>
             </div>
@@ -111,7 +111,7 @@
         {%block content%}
         {%endblock%}
     </div>
-    <footer>
+    <footer class="container">
         <div class="footer text-center">Copyright &copy; 2021 LGB Somerset Investment Private Limited <br> The
             General Room. All rights reserved.</div>
     </footer>
