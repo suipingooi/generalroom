@@ -1,0 +1,17 @@
+{% extends 'base-template.html' %}
+{% load crispy_forms_tags %}
+
+{% block head_title %} TGR | Book Tour {% endblock %}
+
+{%block content%}
+<div class="forms container-fluid">
+    <h4>Book A Tour</h4>
+    <form method="POST">
+        {% csrf_token %}
+        {{ c_form | crispy }}
+        {{ vr_form | crispy }}
+        <a class="btn btn-outline-secondary mt-3" href="{% url 'bookspace' %}">back</a>
+        <input class="btn btn-secondary mt-3" type="submit" value="Book Tour" />
+    </form>
+</div>
+{%endblock%}

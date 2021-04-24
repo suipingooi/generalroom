@@ -130,5 +130,3 @@ def delete_price(request, price_id):
         return render(request, 'spaces/price_delete-template.html', {
             'price': price_to_delete
         })
-
-# validity / timeslots for booking
