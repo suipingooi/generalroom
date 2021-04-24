@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
-
+from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
 from django.conf import settings
 
@@ -51,7 +51,38 @@ def checkout(request):
         success_url=settings.STRIPE_SUCCESS_URL,
         cancel_url=settings.STRIPE_CANCEL_URL,
     )
+    request.session['basket'] = {}
+
     return render(request, 'checkout/checkout-template.html', {
         'session_id': session.id,
         'public_key': settings.STRIPE_PUBLISHABLE_KEY,
     })
+
+
+@csrf_exempt
+def pay_success(request):
+    payload = request.body
+    sign_header = request.META['HTTP_STRIPE_SIGNATURE']
+
+    event = None
+
+    endpoint_secret = settings.STRIPE_ENDPOINT_SECRET
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sign_header, endpoint_secret
+        )
+    except ValueError as e:
+        return HttpResponse(status=400)
+    except stripe.error.SignatureVerificationError as e:
+        return HttpResponse(status=400)
+
+    if event['type'] == 'checkout.session.completed':
+        session = event['data']['object']
+        all_ids_str = session['metadata']['all_ids']
+        all_ids = json.loads(all_ids_str)
+
+        print(all_ids)
+
+        print(session)
+    return HttpResponse(status=200)
