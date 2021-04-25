@@ -1,11 +1,30 @@
 {% extends 'base-template.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block head_title %} TGR | Book Tour {% endblock %}
 
 {%block content%}
-<div>
-    <img src="#" alt="tgr general room co-working space work luxury" />
+<div id="contactCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'assets\images\crmCarousel\LoungeHotDeskArea.jpg' %}" class="d-block w-100"
+                alt="tgr general room co-working space work luxury hotdesk hot desk" />
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'assets\images\crmCarousel\LoungeArea.jpg' %}" class="d-block w-100"
+                alt="tgr general room co-working space work luxury lounge">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'assets\images\crmCarousel\LoungeArea2.jpg' %}" class="d-block w-100"
+                alt="tgr general room co-working space work luxury lounge">
+        </div>
+        <div class="overlay">
+            <div>LOOKING FORWARD <br>TO MEETING YOU</div>
+        </div>
+    </div>
+</div>
+
 </div>
 <div class="container row">
     <div class="forms col-5">
@@ -22,7 +41,7 @@
             <input class="btn btn-secondary mt-3" type="submit" value="send" />
         </form>
     </div>
-    <div id="coreinfo" class="col-6 ml-3">
+    <div id="coreinfo" class="col-6 mt-4">
         <h4 class="subhead">LOCATION</h4>
         <p>The General Room is conveniently located in the heart of bustling Orchard Road. Next to office services such
             as banks and postal services. It is walking-distance to prestigious condominiums and service apartments, a
