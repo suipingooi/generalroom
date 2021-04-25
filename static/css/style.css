@@ -8,11 +8,13 @@
     font-family: 'Cinzel', serif;
     font-size: calc(12px + 0.3vw);
     margin-top: 50px;
+    font-weight: 600;
 }
 
 .navico {
     font-size: calc(16px + 0.2vw);
 }
+
 
 .dropdown-item {
     margin: 3px;
@@ -37,6 +39,7 @@ li.note {
 
 body {
     font-family: 'Open Sans', sans-serif;
+    color: #6D758C;
 }
 
 .footer {
@@ -136,4 +139,33 @@ img.trolleyphoto {
     background-color: #393C73;
     border-color: #393C73;
     margin-bottom: 10px;
+}
+
+/* BOOKTOUR / CRM-POC */
+
+h1.head {
+    font-size: 3rem;
+    font-family: 'Cinzel', serif;
+    font-weight: 800;
+    color: #6D758C;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h4.subhead {
+    font-family: 'Cinzel', serif;
+    color: #6D758C;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+span.strong {
+    font-weight: 800;
+    font-family: auto;
+}
+
+#coreinfo {
+    line-height: 2.0;
 }
