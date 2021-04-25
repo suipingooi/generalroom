@@ -11,7 +11,7 @@ def add_client(request):
     if request.method == 'POST':
         view_request_form = ViewRequestForm(request.POST)
         client_form = ClientForm(request.POST)
-        if client_form.is_valid() and view_request_form.is_valid():
+        if (client_form.is_valid() and view_request_form.is_valid()):
             client_form.save()
             view_request_form.save()
             messages.success(request, 'Details Submitted')
@@ -25,6 +25,7 @@ def add_client(request):
             })
     else:
         client_form = ClientForm()
+        view_request_form = ViewRequestForm()
         return render(request, 'tenants/client_add-template.html', {
             'c_form': client_form,
             'vr_form': view_request_form

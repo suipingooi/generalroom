@@ -1,8 +1,17 @@
 from django import forms
+from django.forms import ModelForm
 from .models import Client, ViewRequest
 
 
-class ClientForm(forms.ModelForm):
+class Date(forms.DateInput):
+    input_type = 'date'
+
+
+class Time(forms.TimeInput):
+    input_type = 'time'
+
+
+class ClientForm(ModelForm):
     class Meta:
         model = Client
         fields = {
@@ -19,7 +28,7 @@ class ClientForm(forms.ModelForm):
     ]
 
 
-class ViewRequestForm(forms.ModelForm):
+class ViewRequestForm(ModelForm):
     class Meta:
         model = ViewRequest
         fields = {
@@ -30,6 +39,11 @@ class ViewRequestForm(forms.ModelForm):
             'space_needed',
             'preferred_startdate',
             'subject_message',
+        }
+        widgets = {
+            'viewing_date': Date(),
+            'viewing_time': Time(),
+            'preferred_startdate': Date(),
         }
     field_order = [
         'company_name',
