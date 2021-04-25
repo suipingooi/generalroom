@@ -2,43 +2,48 @@
 {% block head_title %} TGR | Book Spaces | Trolley {% endblock %}
 {% block content %}
 {% if num_items != 0 %}
-<h5 class="mt-3 mb-3">Items in Your Trolley</h5>
-<ul class="list-group">
-    {% for key, item in trolley.items %}
-    <li class="list-group-item mb-2">
-        <div class="row">
-            <div class="col-3 justify-item-center">
-                <img src="{{item.photo}}" class="trolleyphoto" alt="{{item.item}}" />
-            </div>
-            <div class="col-9">
-                <div class='row'>
-                    <h5 class="col-11">{{item.item}}</h5>
-                    <a class="col-1 text-end" href="{% url 'basket_del' space_id=item.id %}">
-                        <i class="fas btn-outline-danger fa-times-circle"></i></a>
+<div class="container">
+    <h5 class="mt-3 mb-3">Items in Your Trolley</h5>
+    <ul class="list-group">
+        {% for key, item in trolley.items %}
+        <li class="list-group-item mb-2">
+            <div class="row">
+                <div class="col-3 justify-item-center">
+                    <img src="{{item.photo}}" class="trolleyphoto" alt="{{item.item}}" />
                 </div>
-                <p>{{item.disclaimer}}</p>
-                <div class='trolleytext'>
-                    <p>Quantity : {{item.quantity}} {{item.unit_type}}s | @ SGD{{item.price}} /
-                        {{item.unit_type}}</p>
-                    <p>Minimum {{item.bundle}} {{item.unit_type}}s /bundle </p>
-                    <form method="POST" action="{% url 'basket_update' space_id=item.id%}">
-                        {% csrf_token %}
-                        Units: <input type="text" style="width:25px" name="unit" value="{{item.unit}}" />
-                        <input type="submit" class="btn btn-warning btn-sm mb-1" value="update" />
-                    </form>
+                <div class="col-9">
+                    <div class='row'>
+                        <h5 class="col-11">{{item.item}}</h5>
+                        <a class="col-1 text-end" href="{% url 'basket_del' space_id=item.id %}">
+                            <i class="fas btn-outline-danger fa-times-circle"></i></a>
+                    </div>
+                    <p>{{item.disclaimer}}</p>
+                    <div class='trolleytext'>
+                        <p>Quantity : {{item.quantity}} {{item.unit_type}}s | @ SGD{{item.price}} /
+                            {{item.unit_type}}</p>
+                        <p>Minimum {{item.bundle}} {{item.unit_type}}s /bundle </p>
+                        <form method="POST" action="{% url 'basket_update' space_id=item.id%}">
+                            {% csrf_token %}
+                            Units: <input type="text" style="width:25px" name="unit" value="{{item.unit}}" />
+                            <input type="submit" class="btn btn-warning btn-sm mb-1" value="update" />
+                        </form>
+                    </div>
+                    <h5 class="text-end">SGD{{item.total}}</h5>
                 </div>
-                <h5 class="text-end">SGD{{item.total}}</h5>
             </div>
+        </li>
+
+        {% endfor %}
+        <div>
+            <a href="{% url 'checkout' %}" class="btn btn-secondary checkObtn">
+                Check<i class="far fa-credit-card"></i>Out</a>
         </div>
-    </li>
-    {% endfor %}
-    <div>
-        <a href="{% url 'checkout' %}" class="btn btn-secondary checkObtn">
-            Check<i class="far fa-credit-card"></i>Out</a>
-    </div>
-</ul>
+    </ul>
+</div>
 {% else %}
-<h5 class="mt-3 mb-3">Current Trolley is Empty</h5>
-<a href="{% url 'bookspace' %}" class="btn btn-outline-secondary mb-2"><i class="fas fa-cart-plus">items</i></a>
+<div class="container">
+    <h5 class="mt-3 mb-3">Current Trolley is Empty</h5>
+    <a href="{% url 'bookspace' %}" class="btn btn-outline-secondary mb-2"><i class="fas fa-cart-plus">items</i></a>
+</div>
 {% endif %}
 {% endblock %}
