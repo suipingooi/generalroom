@@ -68,14 +68,24 @@ body {
 #homeCarousel .homeOverlay {
     position: absolute;
     z-index: 1;
-    display: table;
     width: 100%;
     height: 100%;
-    font-family: 'Cinzel', serif;
-    font-weight: 800;
-    font-size: 2.5rem;
-    color: whitesmoke;
+    background-color: #000;
+    opacity: 0.5;
     text-align: center;
+}
+
+#homeCarousel .imgOverlay {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#homeCarousel .imgOverlay img {
+    margin-top: 80px;
+    max-width: 40%
 }
 
 /* ----------------------------------- */
@@ -203,7 +213,7 @@ span.strong {
 #contactCarousel .overlay {
     position: absolute;
     z-index: 1;
-    display: table;
+    display: block;
     width: 100%;
     height: 100%;
     font-family: 'Cinzel', serif;
