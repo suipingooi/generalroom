@@ -37,8 +37,8 @@
             {% csrf_token %}
             {{ c_form | crispy }}
             {{ vr_form | crispy }}
-            <a class="btn btn-outline-secondary mt-3" href="{% url 'bookspace' %}">back</a>
-            <input class="btn btn-secondary mt-3" type="submit" value="send" />
+            <a class="btn btn-outline-secondary mt-1" href="{% url 'bookspace' %}">back</a>
+            <input class="btn btn-secondary mt-1" type="submit" value="send" />
         </form>
     </div>
     <div id="coreinfo" class="col-6 mt-4">
