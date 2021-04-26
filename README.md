@@ -135,3 +135,4 @@ Steps taken to deploy on HEROKU: <br>
 2. allauth templates adapted from [https://github.com/pennersr/django-allauth/tree/master/allauth/templates](https://github.com/pennersr/django-allauth/tree/master/allauth/templates)
 3. Global Trent College mentors: Paul(KunXin) and Ace
 4. toastr options form [https://codeseven.github.io/toastr/demo.html](https://codeseven.github.io/toastr/demo.html)
+5. google maps [https://google-map-generator.com/](https://google-map-generator.com/)
