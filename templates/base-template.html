@@ -93,15 +93,15 @@
     </nav>
 
     {% if user.is_superuser %}
-    <nav class="adminconsole">
+    <nav class="adminconsole mb-3">
         <div class="container row text-end">
             <h5 class="consoletitle">Admin Console</h5>
             <div class="col">
-                <a class="adminbtn btn btn-light mb-3" href="{% url 'addspace' %}">
+                <a class="adminbtn btn btn-light mb-2" href="{% url 'addspace' %}">
                     <i class="fas fa-plus"></i> New Space</a>
-                <a class="adminbtn btn btn-light mb-3" href="{% url 'addprice' %}">
+                <a class="adminbtn btn btn-light mb-2" href="{% url 'addprice' %}">
                     <i class="fas fa-plus"></i> New Pricing</a>
-                <a id="mybtn" class="adminbtn btn btn-light mb-3" href="{% url 'viewpricelist' %}">
+                <a id="mybtn" class="adminbtn btn btn-light mb-2" href="{% url 'viewpricelist' %}">
                     <i class="fas fa-eye"></i> Pricelist</a>
             </div>
         </div>

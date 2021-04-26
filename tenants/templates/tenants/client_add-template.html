@@ -26,41 +26,47 @@
 </div>
 
 </div>
-<div class="container row">
-    <div class="forms col-5">
-        <h1 class="head">ENQUIRIES</h1>
-        <p><span class="strong">Whatsapp or Call Us @ +(65) 9625 9528 </span><br>
-            Email: <a href="mailto: enquiries@thegeneralroom.com">enquiries@thegeneralroom.com</a>
-        </p>
-        <h4 class="subhead">BOOK A TOUR</h4>
-        <form method="POST">
-            {% csrf_token %}
-            {{ c_form | crispy }}
-            {{ vr_form | crispy }}
-            <a class="btn btn-outline-secondary mt-1" href="{% url 'bookspace' %}">back</a>
-            <input class="btn btn-secondary mt-1" type="submit" value="send" />
-        </form>
-    </div>
-    <div id="coreinfo" class="col-6 mt-4">
-        <h4 class="subhead">LOCATION</h4>
-        <p>The General Room is conveniently located in the heart of bustling Orchard Road. Next to office services such
-            as banks and postal services. It is walking-distance to prestigious condominiums and service apartments, a
-            wide plethora of shopping malls and dining choices, as well as retail banking service providers in the area.
-        </p>
-        <p>
-            <span class="strong">Address:</span> 111, #07-07 Somerset Rd, TripleOne Somerset, Singapore 238164
-        </p>
-        <p>
-            <span class="strong">Nearest MRT:</span> Somerset MRT (NS23) (Walking distance of 1 minute)
-        </p>
-        <p>
-            <span class="strong">Nearest Bus Stop:</span> Somerset Station (08121) (Walking distance of 1 minute)
-        </p>
-        <p>
-            <span class="strong">Buses:</span> 7, 14, 14e, 16, 36, 36A, 36B, 65, 77, 106, 111, 123, 124, 128, 143, 162,
-            162M, 167, 171, 174, 174E,
-            175, 190, 700, 700A, 971E, 972, NR1, NR2, Nr3, NR5, NR8
-        </p>
+<div class="container">
+    <div class="row">
+        <div class="forms col-5">
+            <h1 class="head">ENQUIRIES</h1>
+            <p><span class="strong">Whatsapp or Call Us @ +(65) 9625 9528 </span><br>
+                Email: <a href="mailto: enquiries@thegeneralroom.com">enquiries@thegeneralroom.com</a>
+            </p>
+            <h4 class="subhead">BOOK A TOUR</h4>
+            <form method="POST">
+                {% csrf_token %}
+                {{ c_form | crispy }}
+                {{ vr_form | crispy }}
+                <a class="btn btn-outline-secondary mt-1" href="{% url 'bookspace' %}">back</a>
+                <input class="btn btn-secondary mt-1" type="submit" value="send" />
+            </form>
+        </div>
+        <div id="coreinfo" class="col-6 mt-4">
+            <h4 class="subhead">LOCATION</h4>
+            <p>The General Room is conveniently located in the heart of bustling Orchard Road. Next to office services
+                such
+                as banks and postal services. It is walking-distance to prestigious condominiums and service apartments,
+                a
+                wide plethora of shopping malls and dining choices, as well as retail banking service providers in the
+                area.
+            </p>
+            <p>
+                <span class="strong">Address:</span> 111, #07-07 Somerset Rd, TripleOne Somerset, Singapore 238164
+            </p>
+            <p>
+                <span class="strong">Nearest MRT:</span> Somerset MRT (NS23) (Walking distance of 1 minute)
+            </p>
+            <p>
+                <span class="strong">Nearest Bus Stop:</span> Somerset Station (08121) (Walking distance of 1 minute)
+            </p>
+            <p>
+                <span class="strong">Buses:</span> 7, 14, 14e, 16, 36, 36A, 36B, 65, 77, 106, 111, 123, 124, 128, 143,
+                162,
+                162M, 167, 171, 174, 174E,
+                175, 190, 700, 700A, 971E, 972, NR1, NR2, Nr3, NR5, NR8
+            </p>
+        </div>
     </div>
 </div>
 {%endblock%}
