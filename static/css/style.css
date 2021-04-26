@@ -41,10 +41,11 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #6D758C;
     margin-bottom: 50px;
+    font-size: calc(11px + 0.5vw)
 }
 
 p {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
 
 #footer {
@@ -93,12 +94,27 @@ p {
     max-width: 40%
 }
 
+#tgrimg {
+    max-width: 90%;
+    margin: 20px;
+    padding: 10px;
+}
+
+.tgrintro {
+    margin-left: 15px;
+}
+
+.tgrintro .col {
+    min-width: 320px;
+}
+
 .line {
     width: 60%;
     margin: auto;
 }
 
 .mshiptable1 {
+    min-width: 165px;
     font-size: calc(11px + 0.3vw);
     background-color: seashell;
     padding: 10px;
@@ -106,6 +122,7 @@ p {
 }
 
 .mshiptable {
+    min-width: 165px;
     font-size: calc(11px + 0.3vw);
     padding: 10px;
     line-height: 1.2;
@@ -128,6 +145,10 @@ p {
     line-height: 2.2;
 }
 
+.carouselcol {
+    min-width: 320px;
+}
+
 #loungeCarousel .carousel-item img.p {
     display: block;
     width: 100%;
@@ -141,12 +162,26 @@ p {
     padding-left: 10px;
 }
 
+#roomCarousel .carousel-item img.p {
+    display: block;
+    width: 100%;
+    margin: -38.22% 0;
+    padding: 15px;
+}
+
+#roomCarousel .carousel-item img.h {
+    display: block;
+    width: 100%;
+    padding-right: 10px;
+}
+
 /* ------------------------------------ */
 /* ----------------------------------- */
 /* cripsy forms */
 .forms,
 .form-group {
     margin: 15px;
+    font-size: calc(11px + 0.3vw)
 }
 
 .container-fluid {
@@ -272,7 +307,7 @@ span.strong {
     height: 100%;
     font-family: 'Cinzel', serif;
     font-weight: 800;
-    font-size: 2.5rem;
+    font-size: calc(10px + 2.2vw);
     color: whitesmoke;
     margin: 25px 0px 0px 45px;
 }

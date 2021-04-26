@@ -23,16 +23,17 @@
         </div>
     </div>
 </div>
-<div class="container row">
+<div class="tgrintro row">
     <div class="col">
-        <h1 class="head">THE GENERAL ROOM</h1>
+        <h1 class="head mt-5">THE GENERAL ROOM</h1>
         <p>We are a boutique coworking space with a mission of providing stylish, modern and no-frills environment to
             help businesses get things done. We are conveniently located in Orchard and Somerset with sophisticated and
             well equipped business meeting rooms for your needs.</p>
         <p>Our space is also available for short term rentals.</p>
     </div>
-    <div class="col">
-        <img src="#" alt="the general room generalroom co-working space work hot luxury value money cheapest" />
+    <div class="container d-flex justify-content-center col">
+        <img id="tgrimg" src="{% static 'assets\images\crmCarousel\LoungeArea.jpg' %}"
+            alt="the general room generalroom co-working space work hot luxury value money cheapest" />
     </div>
 </div>
 <hr>
@@ -40,9 +41,9 @@
     <h4 class="subhead">What We Provide</h4>
 </div>
 <hr>
-<div class="row text-center">
-    <div class="col-6">
-        <h4 class="subhead">Our Lounge Area</h4>
+<div class="row d-flex justify-content-center text-center">
+    <div class="carouselcol col-6">
+        <h4 class="subhead">Our Lounge</h4>
         <div id="loungeCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#loungeCarousel" data-bs-slide-to="0" class="active"
@@ -150,9 +151,106 @@
             </button>
         </div>
     </div>
-    <div class="col-6">
+    <div class="carouselcol col-6">
         <h4 class="subhead">Our Rooms</h4>
-        <p>carousel for rooms</p>
+        <div id="roomCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="6" aria-label="Slide 7"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="7" aria-label="Slide 8"></button>
+                <button type="button" data-bs-target="#roomCarousel" data-bs-slide-to="8" aria-label="Slide 9"></button>
+
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="p" src="{% static 'assets\images\loungeCarousel\CA8A9353.jpg' %}" class="d-block w-100"
+                        alt="the general room generalroom lounge area co-working space">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>The General Room | Dedicated Desk</h4>
+                        <p>placeholder content slide #1.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="p" src="{% static 'assets\images\loungeCarousel\CA8A9406.jpg' %}" class="d-block w-100"
+                        alt="the general room generalroom lounge area co-working space coffee machine cafe style">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>The General Room | Open Hot Desk</h4>
+                        <p>placeholder content slide #2.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="p" src="{% static 'assets\images\loungeCarousel\OpenArea3.jpg' %}" class="d-block w-100"
+                        alt="the general room generalroom lounge area co-working space lounging sofa hotel feel">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Meeting Room | Battalion</h5>
+                        <p>placeholder content slide #3.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="p" src="{% static 'assets\images\loungeCarousel\CA8A9482.jpg' %}" class="d-block w-100"
+                        alt="the general room generalroom lounge area co-working space cafe work area">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>Meeting Room | Squadron</h4>
+                        <p>placeholder content slide #4.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="h" src="{% static 'assets\images\loungeCarousel\DSCF2481.jpg' %}" class="d-block w-100"
+                        alt="the general room generalroom lounge area co-working space">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>Meeting Room | Something</h4>
+                        <p>placeholder content slide #5.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="h" src="{% static 'assets\images\loungeCarousel\OpenArea12.jpg' %}"
+                        class="d-block w-100" alt="the general room generalroom lounge area co-working open space">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>Dedicated Storage | Lockers </h4>
+                        <p>placeholder content slide #6.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="h" src="{% static 'assets\images\loungeCarousel\OpenArea19.jpg' %}"
+                        class="d-block w-100"
+                        alt="the general room generalroom lounge area co-working space work desk hot">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h4>Private Room | Something </h4>
+                        <p>placeholder content slide #7.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="h" src="{% static 'assets\images\loungeCarousel\OpenArea5.jpg' %}" class="d-block w-100"
+                        alt="the general room generalroom lounge area co-working space cafe style work area">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Private Room | Something</h5>
+                        <p>placeholder content slide #8.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="h" src="{% static 'assets\images\loungeCarousel\OpenArea9.jpg' %}" class="d-block w-100"
+                        alt="the general room generalroom lounge area co-working space cafe style work area">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Private Room + | Something </h5>
+                        <p>placeholder content slide #9.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#roomCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#roomCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
     </div>
 </div>
 <hr>
