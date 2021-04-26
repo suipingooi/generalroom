@@ -175,6 +175,16 @@ p {
     padding-right: 10px;
 }
 
+.tgricons {
+    font-size: calc(9px + 0.5vw);
+    margin: 5px;
+    padding: 5px;
+}
+
+.tgricons img {
+    max-width: 80px;
+}
+
 /* ------------------------------------ */
 /* ----------------------------------- */
 /* cripsy forms */
