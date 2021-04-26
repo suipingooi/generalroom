@@ -8,17 +8,15 @@
         {% for key, item in trolley.items %}
         <li class="list-group-item mb-2">
             <div class="row">
-                <div class="col-3 justify-item-center">
+                <div class="col d-flex justify-content-center">
                     <img src="{{item.photo}}" class="trolleyphoto" alt="{{item.item}}" />
                 </div>
-                <div class="col-9">
-                    <div class='row'>
-                        <h5 class="col-11">{{item.item}}</h5>
-                        <a class="col-1 text-end" href="{% url 'basket_del' space_id=item.id %}">
-                            <i class="fas btn-outline-danger fa-times-circle"></i></a>
-                    </div>
+                <div class="col">
+                    <a id="delbtn" class="mt-1" href="{% url 'basket_del' space_id=item.id %}">
+                        <i class="fas btn-outline-danger fa-times-circle"></i></a>
+                    <h5 class="mt-3">{{item.item}}</h5>
                     <p>{{item.disclaimer}}</p>
-                    <div class='trolleytext'>
+                    <div class='trolleytext row d-flex justify-content-start'>
                         <p>Quantity : {{item.quantity}} {{item.unit_type}}s | @ SGD{{item.price}} /
                             {{item.unit_type}}</p>
                         <p>Minimum {{item.bundle}} {{item.unit_type}}s /bundle </p>
