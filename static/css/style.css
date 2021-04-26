@@ -131,14 +131,14 @@ p {
 #loungeCarousel .carousel-item img.p {
     display: block;
     width: 100%;
-    margin: -41.6% 0;
+    margin: -38.22% 0;
     padding: 15px;
 }
 
 #loungeCarousel .carousel-item img.h {
     display: block;
     width: 100%;
-    padding: 15px;
+    padding-left: 10px;
 }
 
 /* ------------------------------------ */
