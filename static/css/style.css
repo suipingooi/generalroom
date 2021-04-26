@@ -186,6 +186,51 @@ p {
 }
 
 /* ------------------------------------ */
+#aboutus {
+    margin: 0px;
+    background-color: black;
+    color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.story {
+    margin: 15px;
+    padding: 15px;
+    font-size: calc(11px + 0.4vw);
+}
+
+#aboutus .txtOverlay {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    margin-top: 115px;
+    color: whitesmoke;
+}
+
+#aboutus h4 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+}
+
+#aboutus h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    color: whitesmoke;
+    font-size: calc(12px + 3vw);
+}
+
+#aboutus h5 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: 300;
+    color: whitesmoke;
+    font-size: calc(9px + 1vw);
+}
+
+#aboutus .col {
+    min-width: 48.6%;
+    padding: 15px;
+}
+
 /* ----------------------------------- */
 /* cripsy forms */
 .forms,
