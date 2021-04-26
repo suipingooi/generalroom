@@ -128,10 +128,16 @@ p {
     line-height: 2.2;
 }
 
-#loungeCarousel .carousel-item img {
+#loungeCarousel .carousel-item img.p {
     display: block;
-    max-width: 100%;
-    margin: -40% -0%;
+    width: 100%;
+    margin: -41.6% 0;
+    padding: 15px;
+}
+
+#loungeCarousel .carousel-item img.h {
+    display: block;
+    width: 100%;
     padding: 15px;
 }
 
