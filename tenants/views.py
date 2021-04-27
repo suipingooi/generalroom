@@ -2,6 +2,7 @@ from django.shortcuts import render, reverse, redirect, get_object_or_404
 from .models import Client
 from .forms import ClientForm, ViewRequestForm
 from django.contrib import messages
+
 # Create your views here.
 
 # CRUD tenant-client / CRM
