@@ -1,19 +1,9 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.validators import (
+    MaxValueValidator, MinValueValidator, RegexValidator)
 import datetime
 from django import forms
 # Create your models here.
-
-
-class Client(models.Model):
-    first_name = models.CharField(blank=False, max_length=255)
-    last_name = models.CharField(blank=False, max_length=255)
-    email = models.EmailField(blank=False, max_length=320)
-    phone = models.IntegerField(blank=False)
-
-    def __str__(self):
-        return (self.first_name + " "
-                + self.last_name + " (" + self.email + ") ")
 
 
 def valiDate(date):
@@ -34,7 +24,11 @@ def valiTime(time):
     return time
 
 
-class ViewRequest(models.Model):
+class ClientRequest(models.Model):
+    first_name = models.CharField(blank=False, max_length=255)
+    last_name = models.CharField(blank=False, max_length=255)
+    email = models.EmailField(blank=False, max_length=320, unique=True)
+    phone = models.CharField(blank=False, max_length=8)
     viewing_date = models.DateField(blank=False, validators=[valiDate])
     viewing_time = models.TimeField(blank=False, validators=[valiTime])
     company_name = models.CharField(blank=False, max_length=320)
@@ -45,5 +39,5 @@ class ViewRequest(models.Model):
     subject_message = models.TextField(blank=True)
 
     def __str__(self):
-        return (self.company_name + " "
-                + str(self.viewing_date) + " " + str(self.viewing_time))
+        return (self.company_name + " " + self.first_name
+                + " " + self.last_name + " " + self.email)

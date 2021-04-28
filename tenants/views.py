@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
-from .models import Client
-from .forms import ClientForm, ViewRequestForm
+from .models import ClientRequest
+from .forms import ClientRequestForm
 from django.contrib import messages
 
 # Create your views here.
@@ -10,56 +10,53 @@ from django.contrib import messages
 
 def add_client(request):
     if request.method == 'POST':
-        view_request_form = ViewRequestForm(request.POST)
-        client_form = ClientForm(request.POST)
-        if (client_form.is_valid() and view_request_form.is_valid()):
-            client_form.save()
-            view_request_form.save()
-            messages.success(request, 'Details Submitted')
+        clientrequest_form = ClientRequestForm(request.POST)
+        if clientrequest_form.is_valid():
+            clientrequest_form.save()
+            messages.success(
+                request, 'Details Submitted, A confirmation call will follow within 24hrs')
             return redirect(reverse('home'))
         else:
             messages.error(
                 request, 'Action Unsuccessful, Please check error fields')
             return render(request, 'tenants/client_add-template.html', {
-                'c_form': client_form,
-                'vr_form': view_request_form
+                'cr_form': clientrequest_form,
             })
     else:
-        client_form = ClientForm()
-        view_request_form = ViewRequestForm()
+        clientrequest_form = ClientRequestForm()
         return render(request, 'tenants/client_add-template.html', {
-            'c_form': client_form,
-            'vr_form': view_request_form
+            'cr_form': clientrequest_form,
         })
 
 
 def client_list(request):
-    tenant = Client.objects.all().order_by('-id')
+    tenant = ClientRequest.objects.all()
     return render(request, 'tenants/client_list-template.html', {
-        'tenant': tenant
+        'tenant': tenant,
     })
 
 
-def edit_client(request, client_id):
-    client_to_edit = get_object_or_404(Client, pk=client_id)
+def edit_client(request, request_id):
+    client_to_edit = get_object_or_404(ClientRequest, pk=request_id)
     if request.method == "POST":
-        client_form = ClientForm(request.POST, instance=client_to_edit)
-        if client_form.is_valid():
-            client_form.save()
+        clientrequest_form = ClientRequestForm(
+            request.POST, instance=client_to_edit)
+        if clientrequest_form.is_valid():
+            clientrequest_form.save()
             messages.success(request, 'Client Details Updated')
             return redirect(reverse(client_list))
         else:
             messages.error(
                 request, 'Action Unsuccessful, Please check error fields')
             return render(request, 'tenants/client_update-template.html', {
-                'form': client_form,
+                'form': clientrequest_form,
                 'tenant': client_to_edit
             })
     else:
         messages.info(request, 'EDIT action will overwrite data')
-        client_form = ClientForm(instance=client_to_edit)
+        clientrequest_form = ClientRequestForm(instance=client_to_edit)
         return render(request, 'tenants/client_update-template.html', {
-            'form': client_form,
+            'form': clientrequest_form,
             'tenant': client_to_edit
         })
     return render(request, 'tenants/client_list-template.html', {
@@ -67,8 +64,8 @@ def edit_client(request, client_id):
     })
 
 
-def delete_client(request, client_id):
-    client_to_del = get_object_or_404(Client, pk=client_id)
+def delete_client(request, request_id):
+    client_to_del = get_object_or_404(ClientRequest, pk=request_id)
     if request.method == "POST":
         client_to_del.delete()
         messages.success(request, 'Client Data Deleted')
