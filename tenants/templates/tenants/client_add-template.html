@@ -36,8 +36,7 @@
             <h4 class="subhead">BOOK A TOUR</h4>
             <form method="POST">
                 {% csrf_token %}
-                {{ c_form | crispy }}
-                {{ vr_form | crispy }}
+                {{ cr_form | crispy }}
                 <a class="btn btn-outline-secondary mt-1" href="{% url 'bookspace' %}">back</a>
                 <input class="btn btn-secondary mt-1" type="submit" value="send" />
             </form>

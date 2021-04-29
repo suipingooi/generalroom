@@ -1,7 +1,8 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from .models import ClientRequest
-from .forms import ClientRequestForm
+from .forms import ClientRequestForm, QForm
 from django.contrib import messages
+from django.db.models import Q
 
 # Create your views here.
 
@@ -14,7 +15,8 @@ def add_client(request):
         if clientrequest_form.is_valid():
             clientrequest_form.save()
             messages.success(
-                request, 'Details Submitted, A confirmation call will follow within 24hrs')
+                request, ('Details Submitted! A confirmation call'
+                          + ' will follow within 24hrs.'))
             return redirect(reverse('home'))
         else:
             messages.error(
@@ -30,9 +32,22 @@ def add_client(request):
 
 
 def client_list(request):
+    q_form = QForm(request.GET)
     tenant = ClientRequest.objects.all()
+    query = ~Q(pk__in=[])
+    if 'company' in request.GET and request.GET['company']:
+        query = query & Q(
+            company_name__icontains=request.GET['company'])
+
+    if 'date' in request.GET and request.GET['date']:
+        query = query & Q(
+            viewing_date__month=request.GET['date'])
+
+    tenant = tenant.filter(query).values().distinct()
+
     return render(request, 'tenants/client_list-template.html', {
         'tenant': tenant,
+        'Qform': q_form
     })
 
 

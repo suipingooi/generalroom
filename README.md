@@ -129,6 +129,7 @@ Steps taken to deploy on HEROKU: <br>
 3. [https://docs.djangoproject.com/en/3.1/ref/forms/widgets/](https://docs.djangoproject.com/en/3.1/ref/forms/widgets/)
 4. [https://codepen.io/riyos94/pen/NXgXdp](https://codepen.io/riyos94/pen/NXgXdp)
 5. [https://larsmidgaard.no/css-trick-fluid-text-size-with-max-font-size/](https://larsmidgaard.no/css-trick-fluid-text-size-with-max-font-size/)
+6. [http://www.learningaboutelectronics.com/Articles/How-to-use-template-filters-in-Django.php](http://www.learningaboutelectronics.com/Articles/How-to-use-template-filters-in-Django.php)
 
 ### Credits
 1. .gitignore from [https://www.toptal.com/developers/gitignore/api/django](https://www.toptal.com/developers/gitignore/api/django)
