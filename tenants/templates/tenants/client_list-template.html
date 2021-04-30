@@ -10,14 +10,17 @@
     <nav class="navbar-light bg-light">
         <form method="GET">
             <div class="row">
-                <div class="col-sm-4 form-group">
+                <div class="col-sm-2 form-group">
+                    {{Qform.name|as_crispy_field}}
+                </div>
+                <div class="col-sm-2 form-group">
                     {{Qform.company|as_crispy_field}}
                 </div>
-                <div class="col-sm-4 form-group">
+                <div class="col-sm-2 form-group">
                     {{Qform.date|as_crispy_field}}
                 </div>
                 <div id="searchbtn" class="col-sm-3 form-group">
-                    <input type="submit" class="btn btn-primary" value="Search" />
+                    <input type="submit" class="btn btn-outline-success" value="Search" />
                 </div>
             </div>
         </form>

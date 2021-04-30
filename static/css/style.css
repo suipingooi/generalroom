@@ -398,3 +398,11 @@ span.strong {
 }
 
 /* ----------------------------------- */
+/* staff / admin pages */
+#searchbtn {
+    margin-top: 28px;
+}
+
+.form-control {
+    font-size: calc(10px + 0.2vw)
+}

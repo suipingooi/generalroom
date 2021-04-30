@@ -35,6 +35,10 @@ def client_list(request):
     q_form = QForm(request.GET)
     tenant = ClientRequest.objects.all()
     query = ~Q(pk__in=[])
+    if 'name' in request.GET and request.GET['name']:
+        query = query & (Q(first_name__icontains=request.GET['name']) | Q(
+            last_name__icontains=request.GET['name']))
+
     if 'company' in request.GET and request.GET['company']:
         query = query & Q(
             company_name__icontains=request.GET['company'])
