@@ -1,0 +1,61 @@
+{% extends 'base-template.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block head_title %} TGR Staff | Clients {% endblock %}
+
+{%block content%}
+<div class="container">
+    <form id="admin_form" method="POST">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-sm-3 form-group">
+                {{form.first_name|as_crispy_field}}
+            </div>
+            <div class="col-sm-3 form-group">
+                {{form.last_name|as_crispy_field}}
+            </div>
+            <div class="col-sm-4 form-group">
+                {{form.email|as_crispy_field}}
+            </div>
+            <div class="col-sm-2 form-group">
+                {{form.phone|as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 form-group">
+                {{form.company_name|as_crispy_field}}
+            </div>
+            <div class="col-sm-2 form-group">
+                {{form.company_size|as_crispy_field}}
+            </div>
+            <div class="col-sm-3 form-group">
+                {{form.viewing_date|as_crispy_field}}
+            </div>
+            <div class="col-sm-3 form-group">
+                {{form.viewing_time|as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 form-group">
+                {{form.space_needed|as_crispy_field}}
+            </div>
+            <div class="col-sm-3 form-group">
+                {{form.preferred_startdate |as_crispy_field}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 form-group">
+                <h4>Requested</h4>
+                {{form.subject_message|as_crispy_field}}
+            </div>
+            <div class="col-sm-6 form-group">
+                <h4>Proposed</h4>
+                {{form.remarks|as_crispy_field}}
+            </div>
+        </div>
+        <a class="btn btn-outline-secondary mt-1 mb-2" href="{% url 'clientlist' %}">back</a>
+        <input class="btn btn-secondary mt-1 mb-2" type="submit" value="update" />
+    </form>
+</div>
+{%endblock%}

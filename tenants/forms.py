@@ -80,3 +80,27 @@ class QForm(forms.Form):
     date = forms.ChoiceField(label="",
                              required=False,
                              choices=MONTH,)
+
+
+class AdminForm(ModelForm):
+    class Meta:
+        model = ClientRequest
+        fields = {
+            'first_name',
+            'last_name',
+            'email',
+            'phone',
+            'viewing_date',
+            'viewing_time',
+            'company_name',
+            'company_size',
+            'space_needed',
+            'preferred_startdate',
+            'subject_message',
+            'remarks'
+        }
+        widgets = {
+            'viewing_date': Date(),
+            'viewing_time': Time(),
+            'preferred_startdate': Date(),
+        }

@@ -42,6 +42,7 @@ class ClientRequest(models.Model):
     space_needed = models.CharField(blank=False, max_length=320)
     preferred_startdate = models.DateField(blank=True, null=True)
     subject_message = models.TextField(blank=True)
+    remarks = models.TextField(blank=True)
 
     def __str__(self):
         return (self.company_name + " " + self.first_name

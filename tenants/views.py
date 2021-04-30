@@ -1,6 +1,6 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
 from .models import ClientRequest
-from .forms import ClientRequestForm, QForm
+from .forms import ClientRequestForm, QForm, AdminForm
 from django.contrib import messages
 from django.db.models import Q
 
@@ -55,27 +55,27 @@ def client_list(request):
     })
 
 
-def edit_client(request, request_id):
-    client_to_edit = get_object_or_404(ClientRequest, pk=request_id)
+def edit_client(request, tenant_id):
+    client_to_edit = get_object_or_404(ClientRequest, pk=tenant_id)
     if request.method == "POST":
-        clientrequest_form = ClientRequestForm(
+        admin_form = AdminForm(
             request.POST, instance=client_to_edit)
-        if clientrequest_form.is_valid():
-            clientrequest_form.save()
+        if admin_form.is_valid():
+            admin_form.save()
             messages.success(request, 'Client Details Updated')
             return redirect(reverse(client_list))
         else:
             messages.error(
                 request, 'Action Unsuccessful, Please check error fields')
             return render(request, 'tenants/client_update-template.html', {
-                'form': clientrequest_form,
+                'form': admin_form,
                 'tenant': client_to_edit
             })
     else:
         messages.info(request, 'EDIT action will overwrite data')
-        clientrequest_form = ClientRequestForm(instance=client_to_edit)
+        admin_form = AdminForm(instance=client_to_edit)
         return render(request, 'tenants/client_update-template.html', {
-            'form': clientrequest_form,
+            'form': admin_form,
             'tenant': client_to_edit
         })
     return render(request, 'tenants/client_list-template.html', {
