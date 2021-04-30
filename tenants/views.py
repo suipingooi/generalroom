@@ -81,16 +81,3 @@ def edit_client(request, tenant_id):
     return render(request, 'tenants/client_list-template.html', {
         'tenant': client_to_edit
     })
-
-
-def delete_client(request, request_id):
-    client_to_del = get_object_or_404(ClientRequest, pk=request_id)
-    if request.method == "POST":
-        client_to_del.delete()
-        messages.success(request, 'Client Data Deleted')
-        return redirect(client_list)
-    else:
-        messages.warning(request, 'DELETE action cannot be undone')
-        return render(request, 'tenants/client_delete-template.html', {
-            'tenant': client_to_del
-        })
