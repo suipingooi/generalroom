@@ -51,11 +51,11 @@ class Space(models.Model):
     seat_capacity = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(0), MaxValueValidator(40)])
     photo = ImageField(blank=True, manual_crop="")
-    monthly_print_credit_page = models.PositiveIntegerField(
+    printing = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(1000)])
-    monthly_meeting_room_credit_hour = models.PositiveIntegerField(
+    meeting_room = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
-    window = models.CharField(blank=False, choices=view, max_length=30)
+    view = models.CharField(blank=False, choices=view, max_length=30)
     price = models.ForeignKey(Price, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):

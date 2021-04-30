@@ -10,9 +10,9 @@ class SpaceForm(forms.ModelForm):
             'description',
             'area_size',
             'seat_capacity',
-            'monthly_print_credit_page',
-            'monthly_meeting_room_credit_hour',
-            'window',
+            'printing',
+            'meeting_room',
+            'view',
             'price',
             'photo',
         }
@@ -23,9 +23,9 @@ class SpaceForm(forms.ModelForm):
         'photo',
         'price',
         'area_size',
-        'monthly_print_credit_page',
-        'monthly_meeting_room_credit_hour',
-        'window',
+        'printing',
+        'meeting_room',
+        'view',
     ]
 
 

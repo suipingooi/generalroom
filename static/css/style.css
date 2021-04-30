@@ -407,6 +407,7 @@ span.strong {
     font-size: calc(10px + 0.2vw)
 }
 
-#admin_form .form-group {
+.adminForm .form-group {
     margin: 5px 0px 5px 0px;
+    font-size: calc(11px + 0.3vw)
 }
