@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from pyuploadcare.dj.models import ImageField
+from django import forms
 # Create your models here.
 
 view = (
@@ -17,18 +18,24 @@ rates = (
 )
 
 
+def clean_cost(cost):
+    if cost < 1:
+        raise forms.ValidationError('We are not a charity!')
+    return cost
+
+
 class Price(models.Model):
-    cost = models.DecimalField(max_digits=10, decimal_places=2,
-                               blank=False, default=10,
-                               validators=[MinValueValidator('0.01')])
+    cost = models.DecimalField(
+        blank=False, default=10, max_digits=6,
+        decimal_places=2, validators=[clean_cost])
     unit_type = models.CharField(blank=False, choices=rates, max_length=30)
     min_count = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(1), MaxValueValidator(100)])
     valid_period = models.CharField(blank=True, max_length=255)
 
     def __str__(self):
-        if self.min_count > 1:
-            total = self.cost*self.min_count
+        if int(self.min_count) > 1:
+            total = float(self.cost)*int(self.min_count)
             if self.valid_period != "":
                 return ("SGD" + str(total) + " for " + str(self.min_count)
                         + self.unit_type + "s (@ SGD" + str(self.cost)

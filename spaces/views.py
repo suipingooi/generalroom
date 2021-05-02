@@ -87,7 +87,12 @@ def add_price(request):
             pricelist_form.save()
             messages.success(request, 'New Entry Added to Price List')
             return redirect(reverse(view_pricelist))
-        pass
+        else:
+            messages.error(
+                request, 'Action Unsuccessful, Please check error fields')
+            return render(request, 'spaces/price_add-template.html', {
+                'form': pricelist_form,
+            })
     else:
         pricelist_form = PriceForm()
         return render(request, 'spaces/price_add-template.html', {
