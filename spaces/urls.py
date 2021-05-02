@@ -9,5 +9,5 @@ urlpatterns = [
     path('price/view', spaces.views.view_pricelist, name='viewpricelist'),
     path('price/add', spaces.views.add_price, name='addprice'),
     path('price/edit/<price_id>', spaces.views.update_price, name='updateprice'),
-    path('price/delete/<price_id>', spaces.views.delete_price, name='delprice')
+    path('price/delete/<price_id>', spaces.views.delete_price, name='delprice'),
 ]

@@ -417,3 +417,7 @@ span.strong {
     font-family: 'Open Sans Condensed', sans-serif;
     color: #393C73;
 }
+
+.card-body .deltable {
+    color: #393C73;
+}

@@ -21,12 +21,12 @@ def add_client(request):
         else:
             messages.error(
                 request, 'Action Unsuccessful, Please check error fields')
-            return render(request, 'tenants/client_add-template.html', {
+            return render(request, 'tenants/client_create-template.html', {
                 'cr_form': clientrequest_form,
             })
     else:
         clientrequest_form = ClientRequestForm()
-        return render(request, 'tenants/client_add-template.html', {
+        return render(request, 'tenants/client_create-template.html', {
             'cr_form': clientrequest_form,
         })
 
@@ -50,7 +50,7 @@ def client_list(request):
 
     tenant = tenant.filter(query).values().distinct()
 
-    return render(request, 'tenants/client_list-template.html', {
+    return render(request, 'tenants/client_read-template.html', {
         'tenant': tenant,
         'Qform': q_form
     })
@@ -80,15 +80,29 @@ def edit_client(request, tenant_id):
                 'tenant': cr_to_edit
             })
     else:
-        messages.info(request, 'You creating followup to a client request')
+        messages.info(request, 'You are creating followup to a client request')
         a_form = AdminForm()
         return render(request, 'tenants/client_update-template.html', {
             'cr_form': cr_form,
             'a_form': a_form,
             'tenant': cr_to_edit
         })
-    return render(request, 'tenants/client_list-template.html', {
+    return render(request, 'tenants/client_read-template.html', {
         'cr_form': cr_form,
         'a_form': a_form,
         'tenant': cr_to_edit
     })
+
+
+def del_client(request, tenant_id):
+    cr_to_del = get_object_or_404(ClientRequest, pk=tenant_id)
+    if request.method == "POST":
+        cr_to_del.delete()
+        messages.success(request, 'Client Request CLOSED')
+        return redirect(client_list)
+    else:
+        messages.warning(
+            request, 'Client Request CLOSING will delete all corresponding data and cannot be undone')
+        return render(request, 'tenants/client_delete-template.html', {
+            'cr_to_del': cr_to_del
+        })

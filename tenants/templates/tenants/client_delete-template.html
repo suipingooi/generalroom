@@ -1,0 +1,45 @@
+{% extends 'base-template.html' %}
+{% block head_title %} TGR staff | Close Client Request {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <h4 class="mt-5 mb-3">CLOSE Client Request for {{cr_to_del.space_needed|upper}}?</h4>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Tour Completed on {{cr_to_del.viewing_date}} {{cr_to_del.viewing_time}}</h5>
+            <p class="card-text">
+                Managed by {{cr_to_del.remarks.manager|capfirst}}
+                <table class="table deltable">
+                    <tbody>
+                        <tr>
+                            <th scope="row">COMPANY</th>
+                            <td>{{cr_to_del.company_name|title}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PERSONNEL</th>
+                            <td>{{cr_to_del.last_name|upper}}, {{cr_to_del.first_name|capfirst}}<br></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">EMAIL</th>
+                            <td>{{cr_to_del.email|lower}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">LAST FOLLOW UP</th>
+                            <td>{{cr_to_del.remarks.timestamp}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">COMMENTS</th>
+                            <td>{{cr_to_del.remarks.remarks|capfirst}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </p>
+        </div>
+    </div>
+    <h5 class="mt-4">This action cannot be undone. Are you certain you want to delete this entry?</h5>
+    <form method="POST">
+        {% csrf_token %}
+        <a class="btn btn-outline-success mb-3" href="{% url 'clientlist' %}">Cancel</a>
+        <input class="btn btn-outline-danger mb-3" type="submit" value="Yes" />
+    </form>
+</div>
+{% endblock %}

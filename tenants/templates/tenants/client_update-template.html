@@ -67,6 +67,8 @@
                 <div class="text-center mt-5 mb-5">
                     <a class="btn btn-outline-secondary mt-1 mb-2" href="{% url 'clientlist' %}">back</a>
                     <input class="btn btn-secondary mt-1 mb-2" type="submit" value="update" />
+                    <a class="btn btn-danger mt-1 mb-2" href="{% url 'del_client' tenant_id=tenant.id %}">
+                        <i class="fas fa-trash-alt"></i></a>
                 </div>
             </div>
         </div>
