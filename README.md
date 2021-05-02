@@ -2,7 +2,7 @@
 
 ### General Room | Co-Working Space
 
-The General Room
+The goal of this project is to demonstrate the potential of what a fullstack development can offer for The General Room; with current focus and features limited to CRM database and some e-commerce functions.
 
 <hr>
 

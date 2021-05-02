@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import ClientRequest
+from .models import ClientRequest, crAdmin
 
 
 class Date(forms.DateInput):
@@ -46,6 +46,22 @@ class ClientRequestForm(ModelForm):
         'subject_message',
     ]
 
+    def __init__(self, *args, **kwargs):
+        super(ClientRequestForm, self).__init__(*args, **kwargs)
+        instance = getattr(self, 'instance', None)
+        if instance and instance.pk:
+            self.fields['first_name'].widget.attrs['readonly'] = True
+            self.fields['last_name'].widget.attrs['readonly'] = True
+            self.fields['email'].widget.attrs['readonly'] = True
+            self.fields['phone'].widget.attrs['readonly'] = True
+            self.fields['company_name'].widget.attrs['readonly'] = True
+            self.fields['company_size'].widget.attrs['readonly'] = True
+            self.fields['space_needed'].widget.attrs['readonly'] = True
+            self.fields['viewing_date'].widget.attrs['readonly'] = True
+            self.fields['viewing_time'].widget.attrs['readonly'] = True
+            self.fields['preferred_startdate'].widget.attrs['readonly'] = True
+            self.fields['subject_message'].widget.attrs['readonly'] = True
+
 
 MONTH = (
     ('', 'Filter by month...'),
@@ -84,23 +100,8 @@ class QForm(forms.Form):
 
 class AdminForm(ModelForm):
     class Meta:
-        model = ClientRequest
+        model = crAdmin
         fields = {
-            'first_name',
-            'last_name',
-            'email',
-            'phone',
-            'viewing_date',
-            'viewing_time',
-            'company_name',
-            'company_size',
-            'space_needed',
-            'preferred_startdate',
-            'subject_message',
-            'remarks'
-        }
-        widgets = {
-            'viewing_date': Date(),
-            'viewing_time': Time(),
-            'preferred_startdate': Date(),
+            'remarks',
+            'manager',
         }

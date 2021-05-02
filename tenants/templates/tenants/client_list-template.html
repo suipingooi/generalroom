@@ -25,7 +25,7 @@
             </div>
         </form>
     </nav>
-    <table class="table">
+    <table id="reqlist" class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -36,7 +36,6 @@
                 <th scope="col">Company</th>
                 <th scope="col">Viewing Date & Time </th>
                 <th scope="col">Follow Up</th>
-                <th scope="col">Remarks</th>
             </tr>
         </thead>
         <tbody>
@@ -51,7 +50,6 @@
                 <td>{{t.viewing_date}} at {{t.viewing_time}}</td>
                 <td><a class="btn btn-dark" href="{% url 'edit_client' tenant_id=t.id %}">
                         <i class="fas fa-edit"></i></a></td>
-                <td>{{t.remarks}}</td>
             </tr>
             {% endfor %}
         </tbody>

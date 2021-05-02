@@ -56,7 +56,7 @@ class Space(models.Model):
     meeting_room = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
     view = models.CharField(blank=False, choices=view, max_length=30)
-    price = models.ForeignKey(Price, on_delete=models.SET_NULL, null=True)
+    price = models.ForeignKey(Price, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.space_type

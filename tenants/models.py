@@ -4,6 +4,8 @@ from django.core.validators import (
 import datetime
 from datetime import timedelta
 from django import forms
+from django.contrib.auth.models import User
+from django.utils import timezone
 # Create your models here.
 
 
@@ -29,6 +31,18 @@ def valiTime(time):
     return time
 
 
+class crAdmin(models.Model):
+    remarks = models.TextField(blank=True)
+    manager = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    timestamp = models.DateTimeField(
+        default=(timezone.now() + timedelta(hours=8)))
+    crequest = models.ForeignKey('ClientRequest', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return (str(self.timestamp) + ' by ' + str(self.manager)
+                + ' | ' + self.remarks)
+
+
 class ClientRequest(models.Model):
     first_name = models.CharField(blank=False, max_length=255)
     last_name = models.CharField(blank=False, max_length=255)
@@ -42,7 +56,8 @@ class ClientRequest(models.Model):
     space_needed = models.CharField(blank=False, max_length=320)
     preferred_startdate = models.DateField(blank=True, null=True)
     subject_message = models.TextField(blank=True)
-    remarks = models.TextField(blank=True)
+    remarks = models.ForeignKey(
+        'crAdmin', on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return (self.company_name + " " + self.first_name

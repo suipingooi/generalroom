@@ -411,3 +411,9 @@ span.strong {
     margin: 5px 0px 5px 0px;
     font-size: calc(11px + 0.3vw)
 }
+
+#reqlist {
+    font-size: calc(11px + 0.3vw);
+    font-family: 'Open Sans Condensed', sans-serif;
+    color: #393C73;
+}

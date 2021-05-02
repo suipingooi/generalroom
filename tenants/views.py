@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, redirect, get_object_or_404
-from .models import ClientRequest
+from .models import ClientRequest, crAdmin
 from .forms import ClientRequestForm, QForm, AdminForm
 from django.contrib import messages
 from django.db.models import Q
@@ -34,6 +34,7 @@ def add_client(request):
 def client_list(request):
     q_form = QForm(request.GET)
     tenant = ClientRequest.objects.all()
+
     query = ~Q(pk__in=[])
     if 'name' in request.GET and request.GET['name']:
         query = query & (Q(first_name__icontains=request.GET['name']) | Q(
@@ -56,28 +57,38 @@ def client_list(request):
 
 
 def edit_client(request, tenant_id):
-    client_to_edit = get_object_or_404(ClientRequest, pk=tenant_id)
+    cr_to_edit = get_object_or_404(ClientRequest, pk=tenant_id)
+    cr_form = ClientRequestForm(instance=cr_to_edit)
     if request.method == "POST":
-        admin_form = AdminForm(
-            request.POST, instance=client_to_edit)
-        if admin_form.is_valid():
-            admin_form.save()
+        a_form = AdminForm(request.POST)
+        if a_form.is_valid():
+            followup = a_form.save(commit=False)
+            followup.manager = request.user
+            followup.crequest = cr_to_edit
+            followup.save()
+            cr_to_edit.remarks = get_object_or_404(crAdmin, pk=followup.id)
+            cr_to_edit.save(update_fields=['remarks'])
+
             messages.success(request, 'Client Details Updated')
             return redirect(reverse(client_list))
         else:
             messages.error(
                 request, 'Action Unsuccessful, Please check error fields')
             return render(request, 'tenants/client_update-template.html', {
-                'form': admin_form,
-                'tenant': client_to_edit
+                'cr_form': cr_form,
+                'a_form': a_form,
+                'tenant': cr_to_edit
             })
     else:
-        messages.info(request, 'EDIT action will overwrite data')
-        admin_form = AdminForm(instance=client_to_edit)
+        messages.info(request, 'You creating followup to a client request')
+        a_form = AdminForm()
         return render(request, 'tenants/client_update-template.html', {
-            'form': admin_form,
-            'tenant': client_to_edit
+            'cr_form': cr_form,
+            'a_form': a_form,
+            'tenant': cr_to_edit
         })
     return render(request, 'tenants/client_list-template.html', {
-        'tenant': client_to_edit
+        'cr_form': cr_form,
+        'a_form': a_form,
+        'tenant': cr_to_edit
     })
