@@ -1,12 +1,17 @@
 from django.db import models
-from django.core.validators import (
-    MaxValueValidator, MinValueValidator, RegexValidator)
+from django.core.validators import MaxValueValidator, MinValueValidator
 import datetime
 from datetime import timedelta
 from django import forms
 from django.contrib.auth.models import User
 from django.utils import timezone
 # Create your models here.
+
+
+def valiPhone(phone):
+    if phone.isalpha() or len(phone) != 8:
+        raise forms.ValidationError('Please enter a valid phone number')
+    return phone
 
 
 def valiDate(date):
@@ -16,6 +21,9 @@ def valiDate(date):
     elif date <= datetime.date.today() + timedelta(hours=48):
         raise forms.ValidationError(
             "Please give us 48hrs advance notice!")
+    elif date.weekday() == 5 or date.weekday() == 6:
+        raise forms.ValidationError(
+            "Please choose a weekday!")
     return date
 
 
@@ -47,7 +55,8 @@ class ClientRequest(models.Model):
     first_name = models.CharField(blank=False, max_length=255)
     last_name = models.CharField(blank=False, max_length=255)
     email = models.EmailField(blank=False, max_length=320)
-    phone = models.CharField(blank=False, max_length=8)
+    phone = models.CharField(
+        blank=False, max_length=8, validators=[valiPhone])
     viewing_date = models.DateField(blank=False, validators=[valiDate])
     viewing_time = models.TimeField(blank=False, validators=[valiTime])
     company_name = models.CharField(blank=False, max_length=320)
