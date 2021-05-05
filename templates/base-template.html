@@ -136,7 +136,7 @@
     {% if messages %}
     {% for msg in messages %}
     {% if msg.tags == "success" %}
-    <script type="text/javascript">
+    <script>
         toastr.options = {
             "closeButton": false,
             "debug": false,
@@ -157,7 +157,7 @@
         toastr.success('{{msg}}')
     </script>
     {% elif msg.tags == "error" %}
-    <script type="text/javascript">
+    <script>
         toastr.options = {
             "closeButton": true,
             "debug": false,
@@ -178,7 +178,7 @@
         toastr.error('{{msg}}')
     </script>
     {% elif msg.tags == "warning" %}
-    <script type="text/javascript">
+    <script>
         toastr.options = {
             "closeButton": true,
             "debug": false,
@@ -199,7 +199,7 @@
         toastr.warning('{{msg}}')
     </script>
     {% elif msg.tags == "info" %}
-    <script type="text/javascript">
+    <script>
         toastr.options = {
             "closeButton": false,
             "debug": false,

@@ -12,10 +12,10 @@
                     <img src="{{item.photo}}" class="trolleyphoto" alt="{{item.item}}" />
                 </div>
                 <div class="col">
-                    <a id="delbtn" class="mt-1" href="{% url 'basket_del' space_id=item.id %}">
+                    <a class="mt-1 delbtn" href="{% url 'basket_del' space_id=item.id %}">
                         <i class="fas btn-outline-danger fa-times-circle"></i></a>
                     <h5 class="mt-3">{{item.item}}</h5>
-                    <p>{{item.disclaimer}}</p>
+                    <p>*{{item.disclaimer}}</p>
                     <div class='trolleytext row d-flex justify-content-start'>
                         <p>Quantity : {{item.quantity}} {{item.unit_type}}s | @ SGD{{item.price}} /
                             {{item.unit_type}}</p>
@@ -32,11 +32,11 @@
         </li>
 
         {% endfor %}
-        <div>
-            <a href="{% url 'checkout' %}" class="btn btn-secondary checkObtn">
-                Check<i class="far fa-credit-card"></i>Out</a>
-        </div>
     </ul>
+    <div>
+        <a href="{% url 'checkout' %}" class="btn btn-secondary checkObtn mt-1">
+            Check<i class="far fa-credit-card"></i>Out</a>
+    </div>
 </div>
 {% else %}
 <div class="container">

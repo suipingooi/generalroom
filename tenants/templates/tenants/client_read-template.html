@@ -49,7 +49,9 @@
                 <td>{{t.company_name | title }}</td>
                 <td>{{t.viewing_date}} at {{t.viewing_time}}</td>
                 <td><a class="btn btn-dark" href="{% url 'edit_client' tenant_id=t.id %}">
-                        <i class="fas fa-edit"></i></a></td>
+                        <i class="fas fa-edit"></i></a>
+                    {{t.remarks}}
+                </td>
             </tr>
             {% endfor %}
         </tbody>
