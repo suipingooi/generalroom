@@ -13,6 +13,11 @@ def add_to_trolley(request, space_id):
     price = get_object_or_404(Price, pk=priceid)
     min_count = price.min_count
 
+    if price.valid_period != "":
+        disclaimer = "*" + price.valid_period
+    else:
+        disclaimer = ""
+
     if min_count > 1:
         qty = min_count
     else:
@@ -27,11 +32,11 @@ def add_to_trolley(request, space_id):
     else:
         trolley[space_id] = {
             'id': space_id,
-            'item': space.description,
+            'item': space.space_type + " | " + space.description,
             'price': float(price.cost),
             'unit_type': price.unit_type,
             'total': float(total_cost),
-            'disclaimer': price.valid_period,
+            'disclaimer': disclaimer,
             'bundle': price.min_count,
             'quantity': qty,
             'unit': 1,
@@ -94,6 +99,6 @@ def update_trolley(request, space_id):
             return redirect(reverse('basket_view'))
 
         request.session['basket'] = trolley
-        messages.success(request, 'Items Details Updated')
+        messages.success(request, 'Item Details Updated')
 
     return redirect(reverse('basket_view'))
