@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib import messages
+
 # Create your views here.
 from django.conf import settings
+
 
 import stripe
 import json
@@ -23,14 +26,24 @@ def checkout(request):
         priceid = space_model.price_id
         price_model = get_object_or_404(Price, pk=priceid)
 
+        if space['preferred_start_date'] == "":
+            messages.error(request, 'You must update a start date')
+            return redirect(reverse('basket_view'))
+
+        if space['preferred_start_time'] == "":
+            messages.error(request, 'You must update a start time')
+            return redirect(reverse('basket_view'))
+
         line_item = {
-            "name": space_model.description,
+            "name": space_model.space_type + ":" + space_model.description,
             "amount": (int(price_model.cost)*int(price_model.min_count))*100,
             "quantity": space['unit'],
             "description": ("(" + str(space['bundle'])
                             + str(space['unit_type'])
                             + "s@SGD" + str(price_model.cost)
-                            + "/" + str(space['unit_type'])+")each"),
+                            + "/" + str(space['unit_type'])+")each"
+                            + " -- startdate: "
+                            + str(space['preferred_start_date'])),
             "currency": "SGD",
         }
 
