@@ -59,14 +59,14 @@
                             <i class="fas fa-user-circle navico"></i></a>
                         {% if user.is_superuser %}
                         <ul class="dropdown-menu" aria-labelledby="navigator">
-                            <li class="note">Welcome Back {{user}}, <br> You have Admin Access</li>
+                            <li class="note">Welcome Back {{user|capfirst}}, <br> You have Admin Access</li>
                             <li><a class="dropdown-item" href="/admin/">Manage Site</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
                         </ul>
                         {% else %}
                         <ul class="dropdown-menu" aria-labelledby="navigator">
-                            <p class="note">Welcome Back {{user}}!</p>
+                            <li class="note">Welcome Back {{user|capfirst}}!</li>
                             <li><a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
                         </ul>

@@ -37,7 +37,8 @@
     <div class="row">
         {%for space in spaces%}
         <div class="card productcard">
-            <img src="{{space.photo.cdn_url}}" class="card-img-top" alt="{{space.space_type}} {{space.description}}">
+            <img src="{{space.photo.cdn_url}}" class="card-img-top cardimg"
+                alt="{{space.space_type}} {{space.description}}">
             <div class="card-body">
                 <h5 class="card-title">{{space.space_type}}</h5>
                 <p class="card-text">{{space.description}}

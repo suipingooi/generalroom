@@ -78,7 +78,21 @@ def update_trolley(request, space_id):
         start_time = request.POST['preferred_start_time']
 
         date = datetime.datetime.strptime(start_date, '%Y-%m-%d')
-        print(date)
+
+        dtobj = datetime.datetime.strptime(start_time, '%H:%M')
+        time_hour = int(dtobj.strftime('%H'))
+        time_min = int(dtobj.strftime('%M'))
+
+        if time_hour <= 8 or time_hour > 17:
+            messages.error(
+                request, 'Our operational hours are between 9am and 6pm!')
+            return redirect(reverse('basket_view'))
+
+        if time_hour == 17 and time_min > 0:
+            messages.error(
+                request, 'at least 1hour prior to closing required!')
+            return redirect(reverse('basket_view'))
+
         if date < datetime.datetime.today():
             messages.error(request, 'The date cannnot be in the past!')
             return redirect(reverse('basket_view'))
