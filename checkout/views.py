@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
+from django.contrib.auth.models import User
+from .models import Collection
 
 # Create your views here.
 from django.conf import settings
@@ -52,8 +54,11 @@ def checkout(request):
         all_ids.append({
             'space_id': space_id,
             'quantity': space['quantity'],
+            'unit_type': space['unit_type'],
             'start_date': space['preferred_start_date'],
             'start_time': space['preferred_start_time'],
+            'paid': int(price_model.cost)*int(
+                price_model.min_count)*int(space['unit']),
         })
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
@@ -100,7 +105,27 @@ def pay_success(request):
     # to send data into crm model
     # change URL endpoint, secret key webhook for deploy
         print(all_ids)
-
         print(session)
+
+        userid = session['client_reference_id']
+        userobj = get_object_or_404(User, pk=userid)
+
+        index = len(all_ids)
+
+        for item in all_ids:
+            index -= 1
+            spaceid = all_ids[index]['space_id']
+            spaceobj = get_object_or_404(Space, pk=spaceid)
+
+            item = Collection(
+                name=userobj,
+                space_id=spaceobj,
+                quantity=int(all_ids[index]['quantity']),
+                unit_type=all_ids[index]['unit_type'],
+                start_date=all_ids[index]['start_date'],
+                start_time=all_ids[index]['start_time'],
+                payment=all_ids[index]['paid'],
+            )
+            item.save()
 
     return HttpResponse(status=200)
