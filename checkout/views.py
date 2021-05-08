@@ -1,8 +1,12 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.shortcuts import (
+    render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Collection
+from django.utils import timezone
+import datetime
+from datetime import timedelta
 
 # Create your views here.
 from django.conf import settings
@@ -102,15 +106,12 @@ def pay_success(request):
         all_ids_str = session['metadata']['all_ids']
         all_ids = json.loads(all_ids_str)
 
-    # to send data into crm model
-    # change URL endpoint, secret key webhook for deploy
-        print(all_ids)
-        print(session)
-
         userid = session['client_reference_id']
         userobj = get_object_or_404(User, pk=userid)
 
         index = len(all_ids)
+        print(all_ids)
+        print(timezone.now())
 
         for item in all_ids:
             index -= 1
@@ -125,7 +126,17 @@ def pay_success(request):
                 start_date=all_ids[index]['start_date'],
                 start_time=all_ids[index]['start_time'],
                 payment=all_ids[index]['paid'],
+                timestamp=(datetime.datetime.now() + timedelta(hours=8)),
             )
             item.save()
+        messages.success(request, 'Payment Success, Thank You for your order')
+        return HttpResponse(status=200)
+    else:
+        messages.warning(request, 'Payment Cancelled')
 
-    return HttpResponse(status=200)
+
+def view_collection(request):
+    collection = Collection.objects.all().order_by('-id')
+    return render(request, 'checkout/transacted-template.html', {
+        'col': collection,
+    })

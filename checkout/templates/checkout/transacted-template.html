@@ -1,0 +1,44 @@
+{% extends 'base-template.html' %}
+{% load static %}
+
+{% block head_title %} TGR Staff | Client List {% endblock %}
+
+{%block content%}
+<div class=container>
+    <h4 class="mt-3">Clients Transactions</h4>
+    <table id="reqlist" class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Transacted</th>
+                <th scope="col"></th>
+                <th scope="col">Collection</th>
+                <th class="text-center" scope="col">Client Name</th>
+                <th class="text-end" scope="col">Item</th>
+                <th scope="col"></th>
+                <th scope="col">Qty</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">Start Time</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {%for c in col%}
+            <tr>
+                <th scope="row">{{c.id}}</th>
+                <td>{{c.timestamp }}</td>
+                <td class="text-end">SGD</td>
+                <td class="text-end">{{c.payment | upper }}</td>
+                <td class="text-center">{{c.name | capfirst }}</td>
+                <td class="text-end">{{c.space_id | title }}
+                <td>{{c.space_id.description | capfirst}}</td>
+                <td>{{c.quantity}} {{c.unit_type | lower}}s</td>
+                <td>{{c.start_date}}</td>
+                <td>{{c.start_time}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{%endblock%}

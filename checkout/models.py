@@ -13,6 +13,7 @@ class Collection(models.Model):
     start_time = models.TimeField(blank=False)
     payment = models.DecimalField(blank=False, max_digits=6,
                                   decimal_places=2,)
+    timestamp = models.DateTimeField(blank=False)
 
     def __str__(self):
         return (str(self.name) + " paid " + str(self.payment)

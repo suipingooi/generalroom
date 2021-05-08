@@ -4,7 +4,6 @@ import datetime
 from datetime import timedelta
 from django import forms
 from django.contrib.auth.models import User
-from django.utils import timezone
 # Create your models here.
 
 
@@ -43,7 +42,7 @@ class crAdmin(models.Model):
     remarks = models.TextField(blank=True)
     manager = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     timestamp = models.DateTimeField(
-        default=(timezone.now() + timedelta(hours=8)))
+        default=(datetime.datetime.now() + timedelta(hours=8)))
     crequest = models.ForeignKey('ClientRequest', on_delete=models.CASCADE)
 
     def __str__(self):
