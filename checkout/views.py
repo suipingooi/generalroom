@@ -52,6 +52,8 @@ def checkout(request):
         all_ids.append({
             'space_id': space_id,
             'quantity': space['quantity'],
+            'start_date': space['preferred_start_date'],
+            'start_time': space['preferred_start_time'],
         })
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
