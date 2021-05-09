@@ -3,6 +3,8 @@ from .models import ClientRequest, crAdmin
 from .forms import ClientRequestForm, QForm, AdminForm
 from django.contrib import messages
 from django.db.models import Q
+import datetime
+from datetime import timedelta
 
 # Create your views here.
 
@@ -34,6 +36,7 @@ def add_client(request):
 def client_list(request):
     q_form = QForm(request.GET)
     tenant = ClientRequest.objects.all()
+    flup = crAdmin.objects.all()
 
     query = ~Q(pk__in=[])
     if 'name' in request.GET and request.GET['name']:
@@ -52,7 +55,8 @@ def client_list(request):
 
     return render(request, 'tenants/client_read-template.html', {
         'tenant': tenant,
-        'Qform': q_form
+        'Qform': q_form,
+        'flup': flup,
     })
 
 
@@ -68,9 +72,11 @@ def edit_client(request, tenant_id):
             followup.save()
             cr_to_edit.remarks = get_object_or_404(crAdmin, pk=followup.id)
             cr_to_edit.save(update_fields=['remarks'])
+            cr_to_edit.lastflup = datetime.datetime.now() + timedelta(hours=8)
+            cr_to_edit.save(update_fields=['lastflup'])
 
             messages.success(request, 'Client Details Updated')
-            return redirect(reverse(client_list))
+            return redirect(edit_client, tenant_id=tenant_id)
         else:
             messages.error(
                 request, 'Action Unsuccessful, Please check error fields')
@@ -103,7 +109,7 @@ def del_client(request, tenant_id):
     else:
         messages.warning(
             request, ('Client Request CLOSING will delete all'
-                      + 'corresponding data and cannot be undone'))
+                      + ' corresponding data and cannot be undone'))
         return render(request, 'tenants/client_delete-template.html', {
             'cr_to_del': cr_to_del
         })

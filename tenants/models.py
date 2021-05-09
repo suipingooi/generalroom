@@ -40,7 +40,8 @@ def valiTime(time):
 
 class crAdmin(models.Model):
     remarks = models.TextField(blank=True)
-    manager = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    manager = models.ForeignKey(
+        User, on_delete=models.SET_NULL, null=True, blank=True)
     timestamp = models.DateTimeField(
         default=(datetime.datetime.now() + timedelta(hours=8)))
     crequest = models.ForeignKey('ClientRequest', on_delete=models.CASCADE)
@@ -66,6 +67,7 @@ class ClientRequest(models.Model):
     subject_message = models.TextField(blank=True)
     remarks = models.ForeignKey(
         'crAdmin', on_delete=models.SET_NULL, null=True)
+    lastflup = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
         return (self.company_name + " " + self.first_name
