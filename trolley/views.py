@@ -87,8 +87,7 @@ def update_trolley(request, space_id):
             messages.error(
                 request, 'Our operational hours are between 9am and 6pm!')
             return redirect(reverse('basket_view'))
-
-        if time_hour == 17 and time_min > 0:
+        elif time_hour == 17 and time_min > 0:
             messages.error(
                 request, 'at least 1hour prior to closing required!')
             return redirect(reverse('basket_view'))
@@ -98,6 +97,9 @@ def update_trolley(request, space_id):
             return redirect(reverse('basket_view'))
         elif date <= datetime.datetime.today() + timedelta(hours=24):
             messages.error(request, 'Please give us at least 48hours notice!')
+            return redirect(reverse('basket_view'))
+        elif date.weekday() == 6:
+            messages.error(request, 'Please rest on a Sunday!')
             return redirect(reverse('basket_view'))
 
         trolley[space_id]['unit'] = int(request.POST['unit'])

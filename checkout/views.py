@@ -4,7 +4,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Collection
-from django.utils import timezone
 import datetime
 from datetime import timedelta
 
@@ -97,8 +96,10 @@ def pay_success(request):
             payload, sign_header, endpoint_secret
         )
     except ValueError as e:
+        messages.error(request, e)
         return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as e:
+        messages.error(request, e)
         return HttpResponse(status=400)
 
     if event['type'] == 'checkout.session.completed':
@@ -110,8 +111,6 @@ def pay_success(request):
         userobj = get_object_or_404(User, pk=userid)
 
         index = len(all_ids)
-        print(all_ids)
-        print(timezone.now())
 
         for item in all_ids:
             index -= 1

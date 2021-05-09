@@ -102,7 +102,8 @@ def del_client(request, tenant_id):
         return redirect(client_list)
     else:
         messages.warning(
-            request, 'Client Request CLOSING will delete all corresponding data and cannot be undone')
+            request, ('Client Request CLOSING will delete all'
+                      + 'corresponding data and cannot be undone'))
         return render(request, 'tenants/client_delete-template.html', {
             'cr_to_del': cr_to_del
         })
