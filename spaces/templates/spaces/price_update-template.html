@@ -4,13 +4,15 @@
 {% block head_title %} TGR staff | Add Price {% endblock %}
 
 {%block content%}
-<div class="forms container-fluid">
-    <h4>Update Pricing entry SGD{{price.cost}}/{{price.unit_type}}</h4>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form | crispy }}
-        <a class="btn btn-outline-secondary mt-3" href="{% url 'viewpricelist' %}">back</a>
-        <input class="btn btn-secondary mt-3" type="submit" value="update" />
-    </form>
+<div class="container">
+    <div class="forms container-fluid">
+        <h4>Update Pricing entry SGD{{price.cost}}/{{price.unit_type}}</h4>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <a class="btn btn-outline-secondary mt-3" href="{% url 'viewpricelist' %}">back</a>
+            <input class="btn btn-secondary mt-3" type="submit" value="update" />
+        </form>
+    </div>
 </div>
 {%endblock%}
