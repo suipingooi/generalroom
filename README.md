@@ -60,7 +60,7 @@ A demo of the site can be found here []()
 
 
 ### Testing
-[W3C Validator](https://validator.w3.org/) for html validation. All errors dealt with save for Jinja templating errors/ warnings.
+[W3C Validator](https://validator.w3.org/) for html validation. All errors dealt with save for Jinja templating errors/ warnings. Specifically uploadcare input.
 
 [Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) for css validation. no errors found.
 
@@ -83,7 +83,7 @@ A demo of the site can be found here []()
 | **Test 2: ...**                                                                                                                                                                                                          |
 | **Expected:** ... <br/>**Test:** ... <br/>**Result:** ...<br/>                                                                                                                                                           |
 | **Test 3: ...**                                                                                                                                                                                                          |
-| **Expected:** ... <br> **Test:** ... <br>**Results:** ...                                                                                                                                                                |
+| **Expected:** sign-in link to redirect to sign-in page after password change <br> **Test:** ... <br>**Results:** sign-in link did not respond.                                                                                                                                                                |
 
 <hr>
 
