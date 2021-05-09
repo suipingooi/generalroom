@@ -23,7 +23,7 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*', 'tgrlgbdemo.herokuapp.com']
 
 
 # Application definition
@@ -164,6 +164,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
