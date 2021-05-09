@@ -60,7 +60,6 @@
                         {% if user.is_superuser %}
                         <ul class="dropdown-menu" aria-labelledby="navigator">
                             <li class="note">Welcome Back {{user|capfirst}}, <br> You have Admin Access</li>
-                            <li><a class="dropdown-item" href="/admin/">Manage Site</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_email' %}">Change E-mail</a></li>
                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Sign Out</a></li>
                         </ul>
