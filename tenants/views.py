@@ -78,7 +78,7 @@ def add_client(request):
 
 def client_list(request):
     q_form = QForm(request.GET)
-    tenant = ClientRequest.objects.all()
+    tenant = ClientRequest.objects.all().order_by('lastflup')
     flup = crAdmin.objects.all()
 
     query = ~Q(pk__in=[])

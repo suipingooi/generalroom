@@ -28,7 +28,6 @@
     <table id="reqlist" class="table">
         <thead>
             <tr>
-                <th scope="col">#</th>
                 <th scope="col">First Name</th>
                 <th class="crcolhide" scope="col">Last Name</th>
                 <th class="crcolhide" scope="col">Email</th>
@@ -41,16 +40,15 @@
         <tbody>
             {%for t in tenant%}
             <tr>
-                <th scope="row">{{t.id}}</th>
                 <td>{{t.first_name | capfirst }}</td>
                 <td class="crcolhide">{{t.last_name | upper }}</td>
                 <td class="crcolhide">{{t.email}}</td>
                 <td>{{t.phone}}</td>
                 <td>{{t.company_name | title }}</td>
                 <td>{{t.viewing_date}} at {{t.viewing_time}}</td>
-                <td><a class="btn btn-dark" href="{% url 'edit_client' tenant_id=t.id %}">
+                <th scope="row"><a class="btn btn-dark" href="{% url 'edit_client' tenant_id=t.id %}">
                         <i class="fas fa-edit"></i></a> {{t.lastflup}}
-                </td>
+                    </td>
             </tr>
             {% endfor %}
         </tbody>
