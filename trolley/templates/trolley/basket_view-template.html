@@ -50,10 +50,8 @@
 
         {% endfor %}
     </ul>
-    <div>
-        <a href=" {% url 'checkout' %}" class="btn btn-secondary checkObtn mt-1">
-            Check<i class="far fa-credit-card"></i>Out</a>
-    </div>
+    <a href=" {% url 'checkout' %}" class="btn btn-secondary checkObtn mt-1">
+        Check<i class="far fa-credit-card"></i>Out</a>
 </div>
 {% else %}
 <div class="container">
