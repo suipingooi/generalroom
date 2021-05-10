@@ -3,7 +3,15 @@
 {% block content %}
 {% if request.user.is_authenticated %}
 <div class=container>
-    <h4 class="mt-3">Hello {{request.user | capfirst}}! Welcome Back to TGR</h4>
+    <div class="row">
+        <div class="col-8">
+            <h4 class="mt-3">Hello {{request.user | capfirst}}! Welcome Back to TGR</h4>
+        </div>
+        <div class="col">
+            <a id="smcart" class="nav-link" href="{% url 'basket_view' %}"><i
+                    class="fas fa-shopping-cart navico">{{num_items}}</i></a>
+        </div>
+    </div>
 </div>
 {% endif %}
 {% if request.user.is_superuser %}

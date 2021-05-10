@@ -325,6 +325,19 @@ button.signin {
     border-color: #393C73;
 }
 
+@media screen and (min-width: 1000px) {
+    #smcart {
+        display: none;
+    }
+}
+
+#smcart {
+    color: #393C73;
+    font-size: 14px;
+    float: right;
+    margin-top: 15px;
+}
+
 /* trolley */
 .delbtn {
     float: right;
