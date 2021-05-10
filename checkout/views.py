@@ -140,8 +140,8 @@ def pay_success(request):
             item.save()
 
             orderitem = ('PAID SGD' + str(itemcost) + ' for ' + itemcount
-                            + ' ' + space + ' starting ' + startdate
-                            + ' at ' + starttime)
+                         + ' ' + space + ' starting ' + startdate
+                         + ' at ' + starttime)
             order.append(orderitem)
 
         # email to admin
@@ -195,7 +195,8 @@ def cancel_endpoint(request):
 
 
 def view_collection(request):
-    collection = Collection.objects.all().order_by('-id')
+    collection = Collection.objects.all().order_by('-timestamp')
+
     return render(request, 'checkout/transacted-template.html', {
         'col': collection,
     })
