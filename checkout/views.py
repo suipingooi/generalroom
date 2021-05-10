@@ -6,6 +6,8 @@ from django.contrib.auth.models import User
 from .models import Collection
 import datetime
 from datetime import timedelta
+from django.core.mail import send_mail
+from TheGeneralRoom.settings import EMAIL_HOST_USER
 
 # Create your views here.
 from django.conf import settings
@@ -128,10 +130,31 @@ def pay_success(request):
                 timestamp=(datetime.datetime.now() + timedelta(hours=8)),
             )
             item.save()
-        messages.success(request, 'Payment Success, Thank You for your order')
+
+            items = session['line_items']
+            subject = 'Payment Made for TGR spaces'
+            amount = session['amount']
+            message = (userobj + ' paid ' + amount + ' for ' + items)
+            recepient = userobj.email
+            send_mail(subject, message, EMAIL_HOST_USER,
+                      [recepient], fail_silently=False)
+
         return HttpResponse(status=200)
     else:
         messages.warning(request, 'Payment Cancelled')
+        request.session['basket'] = {}
+        return redirect(reverse(cancel_endpoint))
+
+
+def success_endpoint(request):
+    messages.success(request, 'Payment Success, Thank You for your order')
+    return render(request, "main/home-template.html")
+
+
+def cancel_endpoint(request):
+    messages.warning(request, 'Payment Cancelled')
+    request.session['basket'] = {}
+    return render(request, "spaces/index-template.html")
 
 
 def view_collection(request):
