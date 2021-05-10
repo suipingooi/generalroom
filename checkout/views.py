@@ -138,7 +138,7 @@ def pay_success(request):
 
 
 def success_endpoint(request):
-    messages.success(request, 'Payment Success, Thank You for your order')
+    messages.success(request, 'Payment Success, Thank You for your order.')
     return render(request, "main/home-template.html")
 
 
