@@ -5,6 +5,8 @@ from django.contrib import messages
 from django.db.models import Q
 import datetime
 from datetime import timedelta
+from django.core.mail import send_mail
+from TheGeneralRoom.settings import ADMINS
 
 # Create your views here.
 
@@ -19,6 +21,47 @@ def add_client(request):
             messages.success(
                 request, ('Details Submitted! A confirmation call'
                           + ' will follow within 24hrs.'))
+
+            name = (clientrequest_form['first_name'].value().capitalize()
+                    + " " + clientrequest_form['last_name'].value().capitalize())
+            email = clientrequest_form['email'].value()
+            phone = clientrequest_form['phone'].value()
+            viewing = (clientrequest_form['viewing_date'].value() + " at "
+                       + clientrequest_form['viewing_time'].value())
+            admin_message = ('Client Request from ' + name + " (e) "
+                             + email + " (m) " + phone + " for viewing on "
+                             + viewing)
+            send_mail(
+                'Django Admin - Client Request Received',
+                admin_message,
+                'tgrlgbdemo@gmail.com',
+                [ADMINS],
+                fail_silently=False
+            )
+
+            recepient = email
+            comments = (
+                clientrequest_form['subject_message'].value().capitalize()
+            )
+            message = ('Dear ' + name + ','
+                       + '\n Thank you for your interest in TGR.'
+                       + '\n We have received the following request:'
+                       + '\n'
+                       + '\n TGR Spaces Tour: ' + viewing
+                       + '\n Additional Comments: ' + comments
+                       + '\n'
+                       + '\n We will call you shortly to confirm your'
+                       + ' viewing date and time'
+                       + '\n'
+                       + '\n TGR Admin')
+
+            send_mail(
+                'TGR - Received Client Request Viewing',
+                message,
+                'tgrlgbdemo@gmail.com',
+                [recepient],
+                fail_silently=False
+            )
             return redirect(reverse('home'))
         else:
             messages.error(

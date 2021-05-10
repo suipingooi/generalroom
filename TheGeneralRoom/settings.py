@@ -26,6 +26,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*', 'tgrlgbdemo.herokuapp.com']
 
+ADMINS = os.environ.get('ADMINS')
 
 # Application definition
 
