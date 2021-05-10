@@ -7,6 +7,7 @@ from .models import Collection
 import datetime
 from datetime import timedelta
 from django.core.mail import send_mail
+from TheGeneralRoom.settings import ADMINS
 
 # Create your views here.
 from django.conf import settings
@@ -110,31 +111,73 @@ def pay_success(request):
 
         userid = session['client_reference_id']
         userobj = get_object_or_404(User, pk=userid)
-
         index = len(all_ids)
+        order = []
 
         for item in all_ids:
             index -= 1
             spaceid = all_ids[index]['space_id']
             spaceobj = get_object_or_404(Space, pk=spaceid)
 
+            space = str(spaceobj.space_type)
+            startdate = all_ids[index]['start_date']
+            starttime = all_ids[index]['start_time']
+            itemcost = all_ids[index]['paid']
+            itemcount = (str(all_ids[index]['quantity']) +
+                         str(all_ids[index]['unit_type']))
+
+            # transaction data saved to model
             item = Collection(
                 name=userobj,
                 space_id=spaceobj,
                 quantity=int(all_ids[index]['quantity']),
                 unit_type=all_ids[index]['unit_type'],
-                start_date=all_ids[index]['start_date'],
-                start_time=all_ids[index]['start_time'],
-                payment=all_ids[index]['paid'],
+                start_date=startdate,
+                start_time=starttime,
+                payment=itemcost,
                 timestamp=(datetime.datetime.now() + timedelta(hours=8)),
             )
             item.save()
 
+            orderitem = ('PAID SGD' + str(itemcost) + ' for ' + itemcount
+                            + ' ' + space + ' starting ' + startdate
+                            + ' at ' + starttime)
+            order.append(orderitem)
+
+        # email to admin
+        amount = session['amount_total']/100
+        admin_message = ('Payment amounting to SGD' + str(amount)
+                         + ' received from ' + str(userobj) + ' for '
+                         + str(order))
+        send_mail(
+            'Django Admin - Payment Received',
+            admin_message,
+            'tgrlgbdemo@gmail.com',
+            [ADMINS],
+            fail_silently=False
+        )
+
+        # email to client
+        recipient = userobj.email
+        print(order)
+        message = ('Dear ' + str(userobj).capitalize() + ','
+                   + '\n Thank you for your continous support.'
+                   + '\n We have received the following payments:'
+                   + '\n'
+                   + '\n Amount: SGD' + str(amount)
+                   + '\n Spaces: ' + str(order)
+                   + '\n'
+                   + '\n TGR Admin')
+
+        send_mail(
+            'TGR - Payment Received',
+            message,
+            'tgrlgbdemo@gmail.com',
+            [recipient],
+            fail_silently=False
+        )
+
         return HttpResponse(status=200)
-    else:
-        messages.warning(request, 'Payment Cancelled')
-        request.session['basket'] = {}
-        return redirect(reverse(cancel_endpoint))
 
 
 def success_endpoint(request):

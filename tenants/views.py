@@ -39,7 +39,7 @@ def add_client(request):
                 fail_silently=False
             )
 
-            recepient = email
+            recipient = email
             comments = (
                 clientrequest_form['subject_message'].value().capitalize()
             )
@@ -59,7 +59,7 @@ def add_client(request):
                 'TGR - Received Client Request Viewing',
                 message,
                 'tgrlgbdemo@gmail.com',
-                [recepient],
+                [recipient],
                 fail_silently=False
             )
             return redirect(reverse('home'))
