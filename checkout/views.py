@@ -130,19 +130,6 @@ def pay_success(request):
             )
             item.save()
 
-        items = session['line_items']
-        print(items)
-        subject = 'Payment Made for TGR spaces'
-        amount = session['amount']
-        print(amount)
-        message = (userobj + ' paid ' + amount + ' for ' + items)
-        print(message)
-        recepient = userobj.email
-        print(recepient)
-        email_host = settings.EMAIL_HOST_USER
-        send_mail(subject, message, email_host,
-                  [recepient], fail_silently=False)
-
         return HttpResponse(status=200)
     else:
         messages.warning(request, 'Payment Cancelled')
