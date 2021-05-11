@@ -126,7 +126,7 @@ def pay_success(request):
             itemcount = (str(all_ids[index]['quantity']) +
                          str(all_ids[index]['unit_type']))
 
-            # transaction data saved to model
+# transaction data saved to model
             item = Collection(
                 name=userobj,
                 space_id=spaceobj,
@@ -144,7 +144,7 @@ def pay_success(request):
                          + ' at ' + starttime)
             order.append(orderitem)
 
-        # email to admin
+# email to admin
         amount = session['amount_total']/100
         admin_message = ('Payment amounting to SGD' + str(amount)
                          + ' received from ' + str(userobj) + ' for '
@@ -157,7 +157,7 @@ def pay_success(request):
             fail_silently=False
         )
 
-        # email to client
+# email to client
         recipient = userobj.email
         print(order)
         message = ('Dear ' + str(userobj).capitalize() + ','
@@ -181,7 +181,8 @@ def pay_success(request):
 
 
 def success_endpoint(request):
-    messages.success(request, 'Payment Success, Thank You for your order.')
+    messages.success(request, 'Payment Successful, Thank You for '
+                     + 'your order. Receipt will be emailed shortly.')
     return render(request, "main/home-template.html")
 
 

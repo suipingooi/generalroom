@@ -28,8 +28,8 @@ ALLOWED_HOSTS = ['*', 'tgrlgbdemo.herokuapp.com']
 
 ADMINS = os.environ.get('ADMINS')
 
-# Application definition
 
+# Application definitions
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -109,7 +109,7 @@ LOGIN_URL = '/accounts/login/'
 
 LOGIN_REDIRECT_URL = '/spaces'
 
-# testing email verification
+# Email (test/) verification
 TEST_EMAIL = os.environ.get('TEST_EMAIL')
 if TEST_EMAIL == '1':
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -127,13 +127,6 @@ WSGI_APPLICATION = 'TheGeneralRoom.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
 DATABASES = {
     'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))

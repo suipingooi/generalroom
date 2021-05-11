@@ -4,13 +4,14 @@ from pyuploadcare.dj.models import ImageField
 from django import forms
 # Create your models here.
 
+# view choices
 view = (
     ('yes', 'with window view'),
     ('no', 'without window view'),
     ('n/a', 'not applicable'),
 )
 
-
+# rates choices
 rates = (
         ('hour', 'per hour'),
         ('day', 'per day'),

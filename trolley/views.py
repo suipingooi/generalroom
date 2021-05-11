@@ -6,6 +6,7 @@ from datetime import timedelta
 from spaces.models import Space, Price
 
 
+# CRUD trolley
 def add_to_trolley(request, space_id):
     trolley = request.session.get('basket', {})
     space = get_object_or_404(Space, pk=space_id)

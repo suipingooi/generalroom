@@ -10,9 +10,8 @@ from TheGeneralRoom.settings import ADMINS
 
 # Create your views here.
 
+
 # CRUD tenant-client / CRM
-
-
 def add_client(request):
     if request.method == 'POST':
         clientrequest_form = ClientRequestForm(request.POST)

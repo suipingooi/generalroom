@@ -46,6 +46,7 @@ class ClientRequestForm(ModelForm):
         'subject_message',
     ]
 
+    # for admin viewing of raw client form submitted to followup
     def __init__(self, *args, **kwargs):
         super(ClientRequestForm, self).__init__(*args, **kwargs)
         instance = getattr(self, 'instance', None)
@@ -63,6 +64,7 @@ class ClientRequestForm(ModelForm):
             self.fields['subject_message'].widget.attrs['readonly'] = True
 
 
+# admin - query form to organize client requests for followup
 MONTH = (
     ('', 'Filter by month...'),
     ('1', 'January'),
@@ -98,6 +100,7 @@ class QForm(forms.Form):
                              choices=MONTH,)
 
 
+# admin - form for followup updates to client requests
 class AdminForm(ModelForm):
     class Meta:
         model = crAdmin

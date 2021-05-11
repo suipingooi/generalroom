@@ -6,15 +6,15 @@ from django.contrib import messages
 # Create your views here.
 
 
+# client - space rental listing for selection
 def bookspace(request):
     spaces = Space.objects.all().order_by('-id')
     return render(request, 'spaces/index-template.html', {
         'spaces': spaces
     })
 
-# spaces for booking
 
-
+# admin - adding a space product
 def add_space(request):
     if request.method == 'POST':
         space_form = SpaceForm(request.POST)
@@ -33,6 +33,8 @@ def add_space(request):
         return render(request, 'spaces/space_add-template.html', {
             'form': space_form
         })
+
+# admin - updating a space product
 
 
 def update_space(request, space_id):
@@ -57,6 +59,8 @@ def update_space(request, space_id):
             'form': space_form,
             'space': space_to_update
         })
+
+# admin - deleting a space product
 
 
 def delete_space(request, space_id):

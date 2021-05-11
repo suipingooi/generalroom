@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 
+# cleaning / validation functions
 def valiPhone(phone):
     if phone.isalpha() or len(phone) != 8:
         raise forms.ValidationError('Please enter a valid phone number')
@@ -38,6 +39,7 @@ def valiTime(time):
     return time
 
 
+# admin - client-request followup model
 class crAdmin(models.Model):
     remarks = models.TextField(blank=True)
     manager = models.ForeignKey(
