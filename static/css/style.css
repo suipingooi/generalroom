@@ -41,7 +41,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: #6D758C;
     margin-bottom: 100px;
-    font-size: calc(11px + 0.3vw)
+    font-size: calc(12px + 0.2vw)
 }
 
 p {
@@ -303,11 +303,11 @@ button.signin {
 .productcard {
     margin: 15px;
     padding: 8px;
-    width: 24rem;
+    width: 20rem;
 }
 
 .cardimg {
-    height: 230px;
+    height: 210px;
 }
 
 .carteditbtn,
@@ -318,8 +318,7 @@ button.signin {
 }
 
 .cartbtn {
-    float: right;
-    margin: 2px;
+    margin-left: 165px;
     width: 100px;
     background-color: #393C73;
     border-color: #393C73;
