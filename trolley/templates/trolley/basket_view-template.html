@@ -56,7 +56,11 @@
 {% else %}
 <div class="container">
     <h5 class="mt-3 mb-3">Current Trolley is Empty</h5>
+    {% if request.user.is_authenticated %}
     <a href="{% url 'bookspace' %}" class="btn btn-outline-secondary mb-2"><i class="fas fa-cart-plus">items</i></a>
+    {% else %}
+    <a href="{% url 'account_login' %}" class="btn btn-outline-secondary mb-2"><i class="fas fa-cart-plus">items</i></a>
+    {% endif %}
 </div>
 {% endif %}
 {% endblock %}
