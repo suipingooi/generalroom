@@ -148,7 +148,7 @@ def pay_success(request):
         amount = session['amount_total']/100
         admin_message = ('Payment amounting to SGD' + str(amount)
                          + ' received from ' + str(userobj) + ' for '
-                         + str(order))
+                         + '\n'.join(order))
         send_mail(
             'Django Admin - Payment Received',
             admin_message,
@@ -159,13 +159,18 @@ def pay_success(request):
 
 # email to client
         recipient = userobj.email
-        print(order)
         message = ('Dear ' + str(userobj).capitalize() + ','
-                   + '\n Thank you for your continous support.'
+                   + '\n'
+                   + '\n Thank you for your continuous support.'
                    + '\n We have received the following payments:'
                    + '\n'
-                   + '\n Amount: SGD' + str(amount)
-                   + '\n Spaces: ' + str(order)
+                   + '\n Amount:'
+                   + '\n SGD' + str(amount)
+                   + '\n'
+                   + '\n Spaces:'
+                   + '\n'
+                   + '\n'.join(order)
+                   + '\n'
                    + '\n'
                    + '\n TGR Admin')
 
@@ -181,6 +186,7 @@ def pay_success(request):
 
 
 def success_endpoint(request):
+    request.session['basket'] = {}
     messages.success(request, 'Payment Successful, Thank You for '
                      + 'your order. Receipt will be emailed shortly.')
     return render(request, "main/home-template.html")
@@ -188,7 +194,6 @@ def success_endpoint(request):
 
 def cancel_endpoint(request):
     messages.warning(request, 'Payment Cancelled')
-    request.session['basket'] = {}
     spaces = Space.objects.all().order_by('-id')
     return render(request, 'spaces/index-template.html', {
         'spaces': spaces
