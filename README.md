@@ -2,13 +2,15 @@
 
 ### General Room | Co-Working Space
 
-The goal of this project is to demonstrate the potential of what a fullstack development can offer for The General Room; with current focus and features limited to CRM database and some e-commerce functions.
+The goal of this project is to demonstrate the potential of what a fullstack development can offer for The General Room; 
+with current focus and features limited to CRM database and some e-commerce functions.
 
 <hr>
 
 #### The General Room (TGR) - Background
 ![TGR](static/assets/readme/header_logo_main.png) <br>
-We are a boutique coworking space with a mission of providing stylish, modern and no-frills environment to help businesses get things done. We are conveniently located in Orchard and Somerset with sophisticated and well equipped business meeting rooms for your needs.
+We are a boutique coworking space with a mission of providing stylish, modern and no-frills environment to help businesses get things done. 
+We are conveniently located in Orchard and Somerset with sophisticated and well equipped business meeting rooms for your needs.
 
 TGR is also available for short term rentals.
 
@@ -68,8 +70,8 @@ A demo of the site can be found here []()
 
 | Action (development testing)             | Results                       | Status      |
 | -----------------------------------------|:-----------------------------:|-------------|
-|                                          |                               |             |
-|                                          |                               |             |
+| Submission of empty forms                | Unable to submit as expected  |             |
+| Submission of invalid data in forms      | Alert and error trigger fixed |             |
 |                                          |                               |             |                         
 |                                          |                               |             |
 |                                          |                               |             |         
@@ -78,13 +80,18 @@ A demo of the site can be found here []()
 
 | <h3>**User Features Tests during development**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Test 1: ...**                                                                                                                                                                                                          |
-| **Expected:** ... <br> **Test:** ... <br/>**Result:** ...<br/>                                                                                                                                                           |
-| **Test 2: ...**                                                                                                                                                                                                          |
-| **Expected:** ... <br/>**Test:** ... <br/>**Result:** ...<br/>                                                                                                                                                           |
-| **Test 3: ...**                                                                                                                                                                                                          |
-| **Expected:** sign-in link to redirect to sign-in page after password change <br> **Test:** ... <br>**Results:** sign-in link did not respond.                                                                                                                                                                |
-
+| **Test 1: Hyperlinks of navigation tabs / hamburger dropdowns with multiple screen size.**                                                                                                                                                                                                          |
+| **Expected:** 1. Navbar brings me to different specified pages. 2. Navbar turns to hamburger dropdown when screensize drops. <br> **Test:** Clicking on all different links to reload multiple times. <br/>**Result:** Multiple issues with some images noted; margins and flex issues noted; navigation controls works as expected.<br/>                                                                                                                                                           |
+| **Test 2: Admin console navigation and functions**                                                                                                                                                                                                          |
+| **Expected:** 1. on button click brings me to desired pages for CRUD actions where available <br/>**Test:** Clicking on all different buttons to reload table or forms multiple times. <br/>**Result:** page loads and reloads as expected<br/>                                                                                                                                                           |
+| **Test 3: Admin CRUD**
+| **Expected:** create reflected immediately in read; update forms display values to be edited; delete warning prior to action. form validation and error triggers for invalid data  <br/>**Test:** added new pricing to price list, added new space product to space listing; attempted invalid data submission, edited the info in each entry; deleted the entry<br/>**Result:** multiple issues with display size and margins esp. for smaller viewport width<br/>
+| **Test 4: Authentication**                                                                                                                                                                                                          |
+| **Expected:** all links and follow-on on screen instructions loads and responds to user. <br> **Test:** Clicking on all different links to sign-up, sign-in, forget password, change password multiple times following on screen instructions  <br>**Results:** all responds as expected except for sign-in link on password changed page that does not respond. Fixed path.                                                                                                                                                             |
+| **Test 5: Trolley and Checkout**                                                                                                                                                                                                          |
+| **Expected:** items to be able to add, price automatically adjusted; successful stripe payment triggers 1. transacted data storage 2. email notification to admin and client confirmation email. <br> **Test:** add item to trolley, proceed with stripe payment testing  <br>**Results:** multiple failed attempts. found error in port set to private. Fixed.                                                                                                                                            |
+| **Test 6: Emails**                                                                                                                                                                                                          |
+| **Expected:** ... <br> **Test:** ...  <br>**Results:** ...                                                                                                                                            |
 <hr>
 
 **User Features Testing (HEROKU Deployment)** <br>
