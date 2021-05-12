@@ -14,6 +14,7 @@
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %}
+            <a class="btn btn-info mt-2" href="{% url 'bookspace' %}">Cancel</a>
             <button class="btn btn-outline-info mt-2" type="submit">Logout</button>
         </form>
     </div>
