@@ -442,9 +442,10 @@ iframe#gmap {
 
 /* ----------------------------------- */
 /* staff / admin pages */
-#searchbtn {
-    margin-top: 15px;
+.searchbtn {
+    margin-top: 8px;
     font-size: calc(10px + 0.2vw);
+    width: 80px;
 }
 
 .btn {

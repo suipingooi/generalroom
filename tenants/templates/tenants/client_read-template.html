@@ -19,8 +19,9 @@
                 <div class="col-sm-3 form-group">
                     {{Qform.date|as_crispy_field}}
                 </div>
-                <div id="searchbtn" class="col-sm-2 form-group">
-                    <input type="submit" class="btn btn-outline-success" value="Search" />
+                <div class="col form-group">
+                    <input type="submit" class="btn btn-outline-success searchbtn" value="Search" />
+                    <a class="btn btn-success searchbtn" href="{% url 'clientlist' %}">Show All</a>
                 </div>
             </div>
         </form>
