@@ -15,7 +15,7 @@
 </div>
 {% endif %}
 {% if request.user.is_superuser %}
-<div class=container>
+<div class="container">
     <div class="row d-flex justify-content-center">
         {%for space in spaces %}
         <div class="card productcard">
@@ -41,8 +41,8 @@
     </div>
 </div>
 {% else %}
-<div class=container>
-    <div class="row">
+<div class="container">
+    <div class="row d-flex justify-content-center">
         {%for space in spaces%}
         <div class="card productcard">
             <img src="{{space.photo.cdn_url}}" class="card-img-top cardimg"
