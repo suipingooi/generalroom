@@ -35,7 +35,6 @@
             <form method="POST">
                 {% csrf_token %}
                 {{ cr_form | crispy }}
-                <a class="btn btn-outline-secondary mt-1" href="{% url 'bookspace' %}">back</a>
                 <input class="btn btn-secondary mt-1" type="submit" value="send" />
             </form>
         </div>
@@ -65,8 +64,7 @@
             </p>
             <div class="mapouter">
                 <div class="gmap_canvas"><iframe id="gmap"
-                        src="https://maps.google.com/maps?q=111%20Somerset%20Road,%20Singapore%20238164&t=&z=15&ie=UTF8&iwloc=&output=embed"
-                        ></iframe><a
+                        src="https://maps.google.com/maps?q=111%20Somerset%20Road,%20Singapore%20238164&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe><a
                         href="https://soap2day-to.com"></a><br>
                     <a href="https://www.embedgooglemap.net">embedgooglemap.net</a>
                 </div>
