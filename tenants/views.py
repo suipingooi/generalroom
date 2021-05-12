@@ -117,7 +117,7 @@ def edit_client(request, tenant_id):
             cr_to_edit.lastflup = datetime.datetime.now() + timedelta(hours=8)
             cr_to_edit.save(update_fields=['lastflup'])
 
-            messages.success(request, 'Client Details Updated')
+            messages.success(request, 'Follow Up details Updated')
             return redirect(edit_client, tenant_id=tenant_id)
         else:
             messages.error(
