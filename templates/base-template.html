@@ -33,7 +33,9 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container justify-content-between">
-            <img id="mainlogo" class="navbar-brand" src="{% static 'assets\images\logo.jpg' %}" alt="TGR logo" />
+            <a href="{% url 'home' %}">
+                <img id="mainlogo" class="navbar-brand" src="{% static 'assets\images\logo.jpg' %}"
+                    alt="TGR logo" /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navigator"
                 aria-controls="navigator" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
