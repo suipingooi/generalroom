@@ -380,6 +380,12 @@ h4.subhead {
     margin-bottom: 20px;
 }
 
+.forewarn {
+    font-style: italic;
+    color: purple;
+    font-family: auto;
+}
+
 span.strong {
     font-weight: 800;
     font-family: auto;
