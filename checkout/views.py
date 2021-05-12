@@ -147,7 +147,9 @@ def pay_success(request):
 # email to admin
         amount = session['amount_total']/100
         admin_message = ('Payment amounting to SGD' + str(amount)
-                         + ' received from ' + str(userobj) + ' for '
+                         + ' received from '
+                         + str(userobj) + ' for the following:'
+                         + '\n'
                          + '\n'.join(order))
         send_mail(
             'Django Admin - Payment Received',
