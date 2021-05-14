@@ -65,7 +65,7 @@ p {
 }
 
 /* --------------------------------- */
-/* MAIN APP - home-index pages */
+/* MAIN APP - home-index page */
 #homeCarousel .carousel-item img {
     display: block;
     width: 100%;
@@ -196,6 +196,7 @@ p {
 }
 
 /* ------------------------------------ */
+/* aboutus page */
 #aboutus {
     margin: 0px;
     background-color: black;
@@ -204,9 +205,9 @@ p {
 }
 
 .story {
-    margin: 15px;
+    margin: 30px 20px 15px 15px;
     padding: 15px;
-    font-size: calc(11px + 0.4vw);
+    font-size: calc(11px + 0.7vw);
 }
 
 #aboutus .txtOverlay {
@@ -343,9 +344,9 @@ button.signin {
 }
 
 img.trolleyphoto {
-    max-width: 180px;
-    max-height: 180px;
-    margin-top: 30px;
+    max-width: 300px;
+    max-height: 300px;
+    margin: auto;
 }
 
 .trolleytext {
@@ -357,6 +358,10 @@ img.trolleyphoto {
     background-color: #393C73;
     border-color: #393C73;
     margin-bottom: 10px;
+}
+
+.basket {
+    width: 70%;
 }
 
 /* ____________________________________________________*/

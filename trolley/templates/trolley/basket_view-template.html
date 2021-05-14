@@ -2,7 +2,7 @@
 {% block head_title %} TGR | Book Spaces | Trolley {% endblock %}
 {% block content %}
 {% if num_items != 0 %}
-<div class="container">
+<div class="container basket">
     <h5 class="mt-3 mb-3">Items in Your Trolley</h5>
     <ul class="list-group">
         {% for key, item in trolley.items %}
