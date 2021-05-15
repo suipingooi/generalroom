@@ -17,9 +17,9 @@
             {%for p in pricelist%}
             <tr>
                 <th scope="row">
-                    <a class="btn btn-dark" href="{% url 'delprice' price_id=p.id %}">
+                    <a class="btn btn-dark pbtn" href="{% url 'delprice' price_id=p.id %}">
                         <i class="fas fa-trash-alt"></i></a>
-                    <a class="btn btn-dark" href="{% url 'updateprice' price_id=p.id %}">
+                    <a class="btn btn-dark pbtn" href="{% url 'updateprice' price_id=p.id %}">
                         <i class="fas fa-edit"></i></a>
                 </th>
                 <td>SGD{{p.cost}}/{{p.unit_type}}</td>
