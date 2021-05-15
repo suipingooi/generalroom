@@ -41,7 +41,7 @@ def valiTime(time):
 
 # admin - client-request followup model
 class crAdmin(models.Model):
-    remarks = models.TextField(blank=True)
+    remarks = models.TextField(blank=False)
     manager = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True, blank=True)
     timestamp = models.DateTimeField(
