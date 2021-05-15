@@ -17,14 +17,12 @@ UPLOADCARE = {
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = (
-    'django-insecure-!g0jwpm_^u0c_-r@$q&3$&zi32vx2a5z5v^-0d@_40ajz07=7q'
-)
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*', 'tgrlgbdemo.herokuapp.com']
+ALLOWED_HOSTS = ['tgrlgbdemo.herokuapp.com']
 
 ADMINS = os.environ.get('ADMINS')
 
