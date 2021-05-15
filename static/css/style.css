@@ -281,7 +281,8 @@ button.signin {
 /* admin console - controls */
 .adminbtn {
     float: right;
-    margin: 8px;
+    margin: 10px 8px;
+    padding: 8px 15px;
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
     width: 120px;
