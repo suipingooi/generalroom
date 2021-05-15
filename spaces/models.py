@@ -58,7 +58,7 @@ class Space(models.Model):
         default=1, validators=[MinValueValidator(1), MaxValueValidator(1000)])
     seat_capacity = models.PositiveIntegerField(
         default=1, validators=[MinValueValidator(0), MaxValueValidator(40)])
-    photo = ImageField(blank=True, manual_crop="")
+    photo = ImageField(blank=False, manual_crop="")
     printing = models.PositiveIntegerField(
         default=0, validators=[MinValueValidator(0), MaxValueValidator(1000)])
     meeting_room = models.PositiveIntegerField(
