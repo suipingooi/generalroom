@@ -203,6 +203,7 @@ Steps taken to deploy on HEROKU: <br>
 - Django SecretKey Generator [https://djecrety.ir/](https://djecrety.ir/)
 - Mov to Gif Converter [https://cloudconvert.com/mov-to-gif](https://cloudconvert.com/mov-to-gif)
 - Global Trent College mentors: Paul(KunXin) and Ace
+- Global Trent College coursemates for lively discourse 
 
 ### Special Thanks
 1. Sean Lim, Owner, LGB Group
