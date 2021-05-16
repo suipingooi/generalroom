@@ -5,6 +5,18 @@
 The goal of this project is to demonstrate the potential of what a fullstack development can offer for The General Room; 
 with current focus and features limited to CRM database and some e-commerce functions.
 
+The targetted main users of this site are:
+1. (owner) TGR management for the following:
+    1. track that all client requests are attended to by staffs
+    2. automate current manual processes.
+2. TGR staffs / client service administrators for the following actions:
+    1. add, update, or remove products following the fluid nature of the business and promotional items. 
+    2. manage and followup on client requests efficiently and effectively with less paperwork.
+    3. follow up on transacted trails.
+3. Clients and general public / new clients:
+    1. learn more about TGR and its offering.
+    2. on-line payment for products esp. for repeat customers.
+
 <hr>
 
 #### The General Room (TGR) - Background
@@ -18,28 +30,41 @@ TGR is also available for short term rentals.
 
 Wireframe of the build design includes:
 
-![Wireframe]()
+![Wireframe](static/assets/readme/tgrlgbwire.jpeg)
 
 <hr>
 
-![Color Chart]()<br>
+![Color Chart](static/assets/readme/tn_colors/tgrcolorchart.png)<br>
 
-<img src="static/assets/readme/tn_colors/black.png" alt="black" width="20px"> <br>
-<img src="static/assets/readme/tn_colors/6D758C.png" alt="#6D758C" width="20px"> <br>
-<img src="static/assets/readme/tn_colors/393C73.png" alt="#393C73" width="20px"> <br>
-<img src="static/assets/readme/tn_colors/77A8F5.png" alt="#77A8F5" width="20px"> <br>
 
-![Font Gylps]()<br>
+<img src="static/assets/readme/tn_colors/black.png" alt="black" width="20px"> Black: symbolizes elegance and sophistication. <br>
+<img src="static/assets/readme/tn_colors/498c86.png" alt="#498c86" width="20px"> Teal: represents a calm, open, transparent relationship and dignified business dealings.<br> 
+<img src="static/assets/readme/tn_colors/6d758c.png" alt="#6d758c" width="20px"> 
+<img src="static/assets/readme/tn_colors/72788c.png" alt="#72788c" width="20px"> Shades of Gray: representing a stern and uncompromising nature; a General.<br>
+<img src="static/assets/readme/tn_colors/030abc.png" alt="#030abc" width="20px"> 
+<img src="static/assets/readme/tn_colors/393c73.png" alt="#393c73" width="20px"> 
+<img src="static/assets/readme/tn_colors/565aa6.png" alt="#565aa6" width="20px"> Shades of Blue: associated with blue blooded nobility and aristrocractic birth.<br>
 
-Colors & Font families for UI/UX is inherited and consistent with TGR's brand image and values.
-font-family: 'Cinzel', serif;
-font-family: 'Montserrat', sans-serif;
-font-family: 'Open Sans', sans-serif;
-font-family: 'Open Sans Condensed', sans-serif;
-font-family: 'Raleway', sans-serif;
+
+
+
+![Font Glyphs](static/assets/readme/fontglyph_tgrlgb.png)<br>
+
+Colors & Font families for UI/UX is inherited and consistent with TGR's brand image, values and identity: 
+personifying a blue blooded, accomplished and stately military General, highly decorated with badges of honour.
+
 <hr>
 
-A demo of the site can be found here []()
+A demo of the site can be found here [tgrlgbdemo](tgrlgbdemo.herokuapp.com)
+1. Login as general user: <br>
+    username: user <br>
+    password: user1234 <br>
+    <br>
+2. Login as admin / staff: <br>
+    username: admin <br>
+    password: admin1234
+
+![ERD]()<br>
 
 <hr>
 
@@ -70,13 +95,13 @@ A demo of the site can be found here []()
 
 | Action (development testing)             | Results                       | Status      |
 | -----------------------------------------|:-----------------------------:|-------------|
-| Submission of empty forms                | Unable to submit as expected  |             |
-| Submission of invalid data in forms      | Alert and error trigger fixed |             |
-|                                          |                               |             |                         
-|                                          |                               |             |
-|                                          |                               |             |         
-|                                          |                               |             |
-|                                          |                               |             |
+| Submission of empty forms                | Unable to submit as expected  | COMPLETED   |
+| Submission of invalid data in forms      | Alert and error trigger fixed | COMPLETED   |
+| Loading in Chrome                        | Margin issues noted, fixed    | COMPLETED   |                         
+| Loading in Firefox                       | Time widget not supported     |    nil      |
+| Trolley add & stripe checkout            | Webhook issues fixed          | COMPLETED   |         
+| Rezising of viewport widths              | Flexbox issues fixed          | COMPLETED   |
+| Checkout / Client request autogen emails | message string issue fixed    | COMPLETED   |
 
 | <h3>**User Features Tests during development**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -91,12 +116,11 @@ A demo of the site can be found here []()
 | **Test 5: Trolley and Checkout**                                                                                                                                                                                                          |
 | **Expected:** items to be able to add, price automatically adjusted; successful stripe payment triggers 1. transacted data storage 2. email notification to admin and client confirmation email. <br> **Test:** add item to trolley, proceed with stripe payment testing  <br>**Results:** multiple failed attempts. found error in port set to private. Fixed.                                                                                                                                            |
 | **Test 6: Emails**                                                                                                                                                                                                          |
-| **Expected:** ... <br> **Test:** ...  <br>**Results:** ...                                                                                                                                            |
+| **Expected:** receive email with confirmation of payment made <br> **Test:** add items to trolley, stripe checkout  <br>**Results:** email received as expected when stripe is successful and port setting is correct.                                                                                                                                            |
 <hr>
 
 **User Features Testing (HEROKU Deployment)** <br>
-[Heroku Deployment User Tests detailed documentation]()
-
+[Heroku Deployment User Tests detailed documentation](static/assets/readme/tgrlgb_UserTesting.pdf)
 
 <hr>
 
@@ -111,7 +135,6 @@ A demo of the site can be found here []()
 1. 
 2. 
 3. 
-
 
 
 ## Deployment
@@ -145,3 +168,8 @@ Steps taken to deploy on HEROKU: <br>
 3. Global Trent College mentors: Paul(KunXin) and Ace
 4. toastr options form [https://codeseven.github.io/toastr/demo.html](https://codeseven.github.io/toastr/demo.html)
 5. google maps [https://google-map-generator.com/](https://google-map-generator.com/)
+
+### Special Thanks
+1. Sean Lim, Owner, LGB Group
+2. KK Kam, CEO, Wellco Capital
+3. Pamela, Administrator, TGR
