@@ -345,7 +345,7 @@ button.signin {
 }
 
 img.trolleyphoto {
-    max-width: 300px;
+    max-width: 280px;
     max-height: 300px;
     margin: auto;
 }
@@ -362,7 +362,7 @@ img.trolleyphoto {
 }
 
 .basket {
-    width: 70%;
+    min-width: 320px;
 }
 
 /* ____________________________________________________*/
