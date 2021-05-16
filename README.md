@@ -64,7 +64,7 @@ A demo of the site can be found here [tgrlgbdemo.herokuapp.com](tgrlgbdemo.herok
     - username: admin 
     - password: admin1234
 
-![ERD]()<br>
+![ERD](static/assets/readme/tgrERD.jpg)<br>
 
 <hr>
 
