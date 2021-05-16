@@ -20,7 +20,7 @@ The targetted main users of this site are:
 <hr>
 
 #### The General Room (TGR) - Background
-![TGR](static/assets/readme/header_logo_main.png) <br>
+![TGR](static/assets/readme/header_logo_main.jpg) <br>
 We are a boutique coworking space with a mission of providing stylish, modern and no-frills environment to help businesses get things done. 
 We are conveniently located in Orchard and Somerset with sophisticated and well equipped business meeting rooms for your needs.
 
