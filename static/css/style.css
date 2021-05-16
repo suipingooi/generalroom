@@ -138,7 +138,7 @@ p {
 
 .price {
     font-family: Arial, Helvetica, sans-serif;
-    color: #77A8F5;
+    color: #498c86;
     font-weight: 800;
     font-size: calc(14px + 4vw);
 }
@@ -247,7 +247,7 @@ p {
 iframe#panvtour {
     width: 80% !important;
     height: 520px;
-    border: solid gray 3px;
+    border: solid #72788c 3px;
 }
 
 
@@ -289,7 +289,7 @@ button.signin {
 }
 
 .adminconsole {
-    background-color: #6D758C;
+    background-color: #565aa6;
     color: white;
     font-family: 'Cinzel', serif;
     font-size: 0.8vw;
@@ -388,7 +388,7 @@ h4.subhead {
 
 .forewarn {
     font-style: italic;
-    color: purple;
+    color: #030abc;
     font-family: auto;
 }
 
