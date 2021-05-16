@@ -45,17 +45,17 @@ Wireframe of the build design includes:
 <img src="static/assets/readme/tn_colors/393c73.png" alt="#393c73" width="20px"> 
 <img src="static/assets/readme/tn_colors/565aa6.png" alt="#565aa6" width="20px"> Shades of Blue: associated with blue blooded nobility and aristrocractic birth.<br>
 
-
-
-
 ![Font Glyphs](static/assets/readme/fontglyph_tgrlgb.png)<br>
 
 Colors & Font families for UI/UX is inherited and consistent with TGR's brand image, values and identity: 
 personifying a blue blooded, accomplished and stately military General, highly decorated with badges of honour.
 
 <hr>
+Payment UX/UI demo with email confirmation for user. Recorded with iphone11. <br>
 
-A demo of the site can be found here [tgrlgbdemo](tgrlgbdemo.herokuapp.com)
+![Payment Demo](static/assets/readme/tgrpaymentdemo.gif)<br>
+
+A demo of the site can be found here [tgrlgbdemo.herokuapp.com](tgrlgbdemo.herokuapp.com)
 - Login as general user: 
     - username: user 
     - password: user1234 <br>
@@ -201,6 +201,7 @@ Steps taken to deploy on HEROKU: <br>
 - Toastr options form [https://codeseven.github.io/toastr/demo.html](https://codeseven.github.io/toastr/demo.html)
 - Google maps [https://google-map-generator.com/](https://google-map-generator.com/)
 - Django SecretKey Generator [https://djecrety.ir/](https://djecrety.ir/)
+- Mov to Gif Converter [https://cloudconvert.com/mov-to-gif](https://cloudconvert.com/mov-to-gif)
 - Global Trent College mentors: Paul(KunXin) and Ace
 
 ### Special Thanks
