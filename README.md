@@ -55,7 +55,7 @@ Payment UX/UI demo with email confirmation for user. Recorded with iphone11. <br
 
 ![Payment Demo](static/assets/readme/tgrpaymentdemo.gif)<br>
 
-A demo of the site can be found here [tgrlgbdemo.herokuapp.com](tgrlgbdemo.herokuapp.com)
+A demo of the site can be found here [tgrlgbdemo.herokuapp.com](https://tgrlgbdemo.herokuapp.com/)
 - Login as general user: 
     - username: user 
     - password: user1234 <br>
