@@ -55,7 +55,8 @@ Payment UX/UI demo with email confirmation for user. Recorded with iphone11. <br
 
 ![Payment Demo](static/assets/readme/tgrpaymentdemo.gif)<br>
 
-* HEROKU no longer supports free tier postgres, demo site is unavailable indefinitely *
+HEROKU no longer supports free tier postgres, demo site is unavailable indefinitely.
+<br>
 
 A demo of the site can be found here [tgrlgbdemo.herokuapp.com]
 - Login as general user: 
